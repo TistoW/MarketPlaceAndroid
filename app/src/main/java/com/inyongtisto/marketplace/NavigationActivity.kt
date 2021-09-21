@@ -1,5 +1,6 @@
 package com.inyongtisto.marketplace
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
+import com.inyongtisto.marketplace.ui.login.LoginActivity
 import com.inyongtisto.marketplace.util.Prefs
 
 class NavigationActivity : AppCompatActivity() {
@@ -34,13 +36,15 @@ class NavigationActivity : AppCompatActivity() {
 
             if (it.itemId == R.id.navigation_notifications) {
                 val s = Prefs(this)
-                if (s.getIsLogin()){ //  true atau false
+                if (s.getIsLogin()) { //  true atau false
                     Log.d("TAG", "sudah login")
+                    navController.navigate(it.itemId)
                 } else {
+                    startActivity(Intent(this, LoginActivity::class.java))
                     Log.d("TAG", "belum login, pindah ke maenu login")
                 }
-
             } else {
+                navController.navigate(it.itemId)
                 Log.d("TAG", "onCreate: yg lain" + it.itemId)
             }
 
