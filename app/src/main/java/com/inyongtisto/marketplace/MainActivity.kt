@@ -10,5 +10,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d("RESPOM", "PESAN SINGKAT")
+
+
+        // get data dari server
     }
 }

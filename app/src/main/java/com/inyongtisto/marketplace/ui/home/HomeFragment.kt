@@ -15,9 +15,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,12 +23,23 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-
+        setData()
+        mainButton()
         return root
+    }
+
+    fun setData(){
+
+        homeViewModel.text.observe(viewLifecycleOwner, {
+            binding.tvTitel.text = it
+        })
+
+    }
+
+    fun mainButton(){
+        binding.btnTest.setOnClickListener {
+            homeViewModel.ubahData()
+        }
     }
 
     override fun onDestroyView() {

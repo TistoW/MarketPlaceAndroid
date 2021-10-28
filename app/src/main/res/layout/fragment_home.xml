@@ -10,6 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hai I'm Tisto"
@@ -18,6 +19,7 @@
         android:textColor="#030303"/>
 
     <TextView
+        android:id="@+id/tv_deskrispi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="If You like this video, please"
@@ -26,6 +28,7 @@
         android:textColor="#030303"/>
 
     <ImageView
+        android:id="@+id/btn_test"
         android:layout_width="wrap_content"
         android:layout_height="130dp"
         android:src="@drawable/subscribe"/>
