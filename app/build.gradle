@@ -64,4 +64,7 @@ dependencies {
     // scalabel size
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    // myHelper
+    implementation 'com.github.TistoW:MyHelper:1.1.15'
 }

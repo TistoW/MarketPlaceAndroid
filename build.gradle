@@ -13,6 +13,16 @@ buildscript {
     }
 }
 
+//allprojects {
+//    repositories {
+//        google()
+//        mavenCentral()
+//        //noinspection JcenterRepositoryObsolete
+//        jcenter()
+//        maven { url "https://jitpack.io" }
+//    }
+//}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
