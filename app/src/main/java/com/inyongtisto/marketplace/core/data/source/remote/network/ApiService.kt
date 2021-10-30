@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
+import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
 import com.inyongtisto.marketplace.core.data.source.remote.response.LoginResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -18,6 +19,6 @@ interface ApiService {
     // "https://127.0.0.1:8000/api/register"
     @POST("register")
     suspend fun register(
-        //@Body user: User
-    ): Response<RequestBody>
+        @Body data: RegisterRequest
+    ): Response<LoginResponse>
 }

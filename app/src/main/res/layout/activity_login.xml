@@ -122,6 +122,7 @@
                 android:text="Belum punya akun?" />
 
             <TextView
+                android:id="@+id/btn_daftar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Daftar"
