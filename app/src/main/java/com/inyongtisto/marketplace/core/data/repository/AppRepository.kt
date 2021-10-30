@@ -4,6 +4,7 @@ import com.inyongtisto.marketplace.core.data.source.local.LocalDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.RemoteDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.network.Resource
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
+import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
 import java.lang.Exception
@@ -19,7 +20,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     emit(Resource.success(body?.data))
                     logs("succes:" + body.toString())
                 } else {
-                    emit(Resource.error(it.body()?.message ?: "Error defult", null))
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
                     logs("Error:" + "keteragan error")
                 }
             }
@@ -29,4 +30,9 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
+    class ErrorCustom(
+        val ok: Boolean,
+        val error_code: Int,
+        val description: String? = null
+    )
 }
