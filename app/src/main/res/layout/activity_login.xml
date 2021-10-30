@@ -25,7 +25,8 @@
                 android:background="@color/white"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:paddingStart="0dp" />
+                android:paddingStart="0dp"
+                android:text="tisto@gmail.com" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,7 +43,8 @@
                 android:background="@color/white"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:paddingStart="0dp" />
+                android:paddingStart="0dp"
+                android:text="12345678" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,6 +130,14 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 
 
 </RelativeLayout>
