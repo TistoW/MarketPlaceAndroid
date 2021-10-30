@@ -3,22 +3,23 @@ package com.inyongtisto.marketplace.util
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import com.chibatching.kotpref.KotprefModel
+import com.inyongtisto.marketplace.core.data.source.model.User
+import com.inyongtisto.myhelper.extension.toJson
+import com.inyongtisto.myhelper.extension.toModel
 
-class Prefs(activity: Activity) {
+object Prefs : KotprefModel() {
 
-    private var sp: SharedPreferences? = null
-    private val login = "login"
+    var isLogin by booleanPref(false)
+    var user by stringPref()
 
-    init {
-        sp = activity.getSharedPreferences("MYPREF", Context.MODE_PRIVATE)
+    fun setUser(data: User?) {
+        user = data.toJson()
     }
 
-
-    fun setIsLogin(value: Boolean) {
-        sp!!.edit().putBoolean(login, value).apply()
+    fun getUser(): User? {
+        if (user.isEmpty()) return null
+        return user.toModel(User::class.java)
     }
 
-    fun getIsLogin(): Boolean {
-        return sp!!.getBoolean(login, false)
-    }
 }

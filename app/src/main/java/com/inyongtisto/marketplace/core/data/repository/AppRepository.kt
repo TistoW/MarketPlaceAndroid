@@ -4,6 +4,7 @@ import com.inyongtisto.marketplace.core.data.source.local.LocalDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.RemoteDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.network.Resource
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
+import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
@@ -16,8 +17,11 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         try {
             remote.login(data).let {
                 if (it.isSuccessful) {
+                    Prefs.isLogin = true
                     val body = it.body()
-                    emit(Resource.success(body?.data))
+                    val user = body?.data
+                    Prefs.setUser(user)
+                    emit(Resource.success(user))
                     logs("succes:" + body.toString())
                 } else {
                     emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))

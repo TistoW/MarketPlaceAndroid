@@ -21,11 +21,11 @@
         android:id="@+id/navigation_keranjang"
         android:name="com.inyongtisto.marketplace.ui.keranjang.KeranjangFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_akun" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.inyongtisto.marketplace.ui.notifications.NotificationsFragment"
+        android:name="com.inyongtisto.marketplace.ui.notifications.AkunFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_keranjang" />
 

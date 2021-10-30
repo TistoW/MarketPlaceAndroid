@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.inyongtisto.marketplace.NavigationActivity
 import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
@@ -49,15 +50,16 @@ class LoginActivity : AppCompatActivity() {
 
             when (it.state) {
                 State.SUCCESS -> {
-                    binding.pd.toGone()
+                    dismisLoading()
                     showToast("Selamat datang " + it.data?.name)
+                    pushActivity(NavigationActivity::class.java)
                 }
                 State.ERROR -> {
-                    binding.pd.toGone()
+                    dismisLoading()
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {
-                    binding.pd.toVisible()
+                    showLoading()
                 }
             }
         })
