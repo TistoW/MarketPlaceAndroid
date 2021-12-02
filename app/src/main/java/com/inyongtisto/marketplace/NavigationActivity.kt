@@ -23,13 +23,8 @@ class NavigationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
         val navController = findNavController(R.id.nav_host_fragment_activity_navigation)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_keranjang))
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
         navView.setOnItemSelectedListener {
 
@@ -40,6 +35,7 @@ class NavigationActivity : AppCompatActivity() {
                 } else {
                     startActivity(Intent(this, LoginActivity::class.java))
                     Log.d("TAG", "belum login, pindah ke maenu login")
+                    return@setOnItemSelectedListener false
                 }
             } else {
                 navController.navigate(it.itemId)

@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.inyongtisto.marketplace.ui.notifications.AkunFragment"
+        android:name="com.inyongtisto.marketplace.ui.akun.AkunFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_keranjang" />
 

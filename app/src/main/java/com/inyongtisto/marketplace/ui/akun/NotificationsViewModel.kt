@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace.ui.notifications
+package com.inyongtisto.marketplace.ui.akun
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

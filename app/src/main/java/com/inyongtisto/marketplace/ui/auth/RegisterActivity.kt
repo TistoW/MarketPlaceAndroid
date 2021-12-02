@@ -49,16 +49,16 @@ class RegisterActivity : AppCompatActivity() {
 
             when (it.state) {
                 State.SUCCESS -> {
-                    dismisLoading()
+//                    dismisLoading()
                     showToast("Selamat datang " + it.data?.name)
                     pushActivity(NavigationActivity::class.java)
                 }
                 State.ERROR -> {
-                    dismisLoading()
+//                    dismisLoading()
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {
-                    showLoading()
+//                    showLoading()
                 }
             }
         })

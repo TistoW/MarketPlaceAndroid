@@ -1,17 +1,15 @@
-package com.inyongtisto.marketplace.ui.notifications
+package com.inyongtisto.marketplace.ui.akun
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.marketplace.NavigationActivity
-import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.databinding.FragmentAkunBinding
 import com.inyongtisto.marketplace.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.pushActivity
 
 class AkunFragment : Fragment() {
@@ -53,6 +51,7 @@ class AkunFragment : Fragment() {
                 tvName.text = user.name
                 tvEmail.text = user.email
                 tvPhone.text = user.phone
+                tvInisial.text = user.name.getInitial()
             }
         }
     }
