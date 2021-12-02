@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun register() {
 
         if (binding.edtName.isEmpty()) return
-        if (binding.edtPassword.isEmpty()) return
+        if (binding.edtPhone.isEmpty()) return
         if (binding.edtEmail.isEmpty()) return
         if (binding.edtPassword.isEmpty()) return
 

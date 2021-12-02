@@ -85,6 +85,8 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/btn_update"
+            style="@style/image_clickable"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_alignParentEnd="true"

@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.marketplace.NavigationActivity
 import com.inyongtisto.marketplace.databinding.FragmentAkunBinding
+import com.inyongtisto.marketplace.ui.updateProfile.UpdateProfileActivity
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
+import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.pushActivity
 
 class AkunFragment : Fragment() {
@@ -37,10 +39,14 @@ class AkunFragment : Fragment() {
         return root
     }
 
-    fun mainButton() {
+    private fun mainButton() {
         binding.btnLogout.setOnClickListener {
             Prefs.isLogin = false
             pushActivity(NavigationActivity::class.java)
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            intentActivity(UpdateProfileActivity::class.java)
         }
     }
 
