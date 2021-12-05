@@ -2,14 +2,16 @@ package com.inyongtisto.marketplace.ui.updateProfile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.inyongtisto.marketplace.databinding.ActivityUpdateProfileBinding
 import com.inyongtisto.marketplace.ui.auth.AuthViewModel
+import com.inyongtisto.marketplace.ui.base.MyActivity
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class UpdateProfileActivity : AppCompatActivity() {
+class UpdateProfileActivity : MyActivity() {
 
     private val viewModel: AuthViewModel by viewModel()
 
@@ -49,30 +51,31 @@ class UpdateProfileActivity : AppCompatActivity() {
         if (binding.edtPhone.isEmpty()) return
         if (binding.edtEmail.isEmpty()) return
 
+        val idUser = Prefs.getUser()?.id
         val body = UpdateProfileRequest(
-            1,
-            binding.edtName.text.toString(),
-            binding.edtEmail.text.toString(),
-            binding.edtPhone.text.toString()
+            idUser.int(),
+            phone = binding.edtPhone.text.toString(),
+            email = binding.edtEmail.text.toString(),
+            name = binding.edtName.text.toString()
         )
 
-//        viewModel.register(body).observe(this, {
-//
-//            when (it.state) {
-//                State.SUCCESS -> {
-////                    dismisLoading()
-//                    showToast("Selamat datang " + it.data?.name)
-//                    pushActivity(NavigationActivity::class.java)
-//                }
-//                State.ERROR -> {
-////                    dismisLoading()
-//                    toastError(it.message ?: "Error")
-//                }
-//                State.LOADING -> {
-////                    showLoading()
-//                }
-//            }
-//        })
+        viewModel.updateUser(body).observe(this, {
+
+            when (it.state) {
+                State.SUCCESS -> {
+                    progress.dismiss()
+                    showToast("Selamat datang " + it.data?.name)
+                    onBackPressed()
+                }
+                State.ERROR -> {
+                    progress.dismiss()
+                    toastError(it.message ?: "Error")
+                }
+                State.LOADING -> {
+                    progress.show()
+                }
+            }
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {

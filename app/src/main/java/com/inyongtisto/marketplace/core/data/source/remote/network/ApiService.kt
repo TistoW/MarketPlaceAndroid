@@ -2,6 +2,7 @@ package com.inyongtisto.marketplace.core.data.source.remote.network
 
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
+import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.inyongtisto.marketplace.core.data.source.remote.response.LoginResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -20,5 +21,11 @@ interface ApiService {
     @POST("register")
     suspend fun register(
         @Body data: RegisterRequest
+    ): Response<LoginResponse>
+
+    @PUT("update-user/{id}")
+    suspend fun updateUser(
+        @Path("id") int: Int,
+        @Body data: UpdateProfileRequest
     ): Response<LoginResponse>
 }
