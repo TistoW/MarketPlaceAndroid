@@ -16,7 +16,7 @@ import com.inyongtisto.myhelper.extension.pushActivity
 
 class AkunFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var notificationsViewModel: AkunViewModel
     private var _binding: FragmentAkunBinding? = null
 
     // This property is only valid between onCreateView and
@@ -29,7 +29,7 @@ class AkunFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this).get(AkunViewModel::class.java)
 
         _binding = FragmentAkunBinding.inflate(inflater, container, false)
         val root: View = binding.root

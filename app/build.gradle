@@ -66,8 +66,14 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     // myHelper
-    implementation 'com.github.TistoW:MyHelper:1.1.24'
+    implementation 'com.github.TistoW:MyHelper:1.1.26'
 
     // shared preferences
     implementation "com.chibatching.kotpref:kotpref:2.13.1"
+
+    // image picker
+    implementation 'com.github.Drjacky:ImagePicker:2.1.11'
+
+    // display image
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
