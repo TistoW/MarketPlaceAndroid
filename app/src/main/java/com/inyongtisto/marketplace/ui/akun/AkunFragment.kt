@@ -9,10 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.marketplace.NavigationActivity
 import com.inyongtisto.marketplace.databinding.FragmentAkunBinding
 import com.inyongtisto.marketplace.ui.updateProfile.UpdateProfileActivity
+import com.inyongtisto.marketplace.util.Constants.USER_URL
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.pushActivity
+import com.squareup.picasso.Picasso
 
 class AkunFragment : Fragment() {
 
@@ -34,9 +36,14 @@ class AkunFragment : Fragment() {
         _binding = FragmentAkunBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setUser()
+
         mainButton()
         return root
+    }
+
+    override fun onResume() {
+        setUser()
+        super.onResume()
     }
 
     private fun mainButton() {
@@ -58,6 +65,8 @@ class AkunFragment : Fragment() {
                 tvEmail.text = user.email
                 tvPhone.text = user.phone
                 tvInisial.text = user.name.getInitial()
+
+                Picasso.get().load(USER_URL + user.image).into(binding.imageProfile)
             }
         }
     }

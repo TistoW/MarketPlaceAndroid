@@ -10,6 +10,7 @@ import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
+import okhttp3.MultipartBody
 import java.lang.Exception
 
 class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
@@ -62,6 +63,24 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         emit(Resource.loading(null))
         try {
             remote.updateUser(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val user = body?.data
+                    Prefs.setUser(user)
+                    emit(Resource.success(user))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+    fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.uploadUser(id, fileImage).let {
                 if (it.isSuccessful) {
                     val body = it.body()
                     val user = body?.data

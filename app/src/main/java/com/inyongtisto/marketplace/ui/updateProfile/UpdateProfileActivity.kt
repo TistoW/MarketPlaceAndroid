@@ -1,7 +1,6 @@
 package com.inyongtisto.marketplace.ui.updateProfile
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import com.github.drjacky.imagepicker.ImagePicker
@@ -10,10 +9,12 @@ import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfile
 import com.inyongtisto.marketplace.databinding.ActivityUpdateProfileBinding
 import com.inyongtisto.marketplace.ui.auth.AuthViewModel
 import com.inyongtisto.marketplace.ui.base.MyActivity
+import com.inyongtisto.marketplace.util.Constants
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.*
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
 
 class UpdateProfileActivity : MyActivity() {
 
@@ -21,6 +22,7 @@ class UpdateProfileActivity : MyActivity() {
 
     private var _binding: ActivityUpdateProfileBinding? = null
     private val binding get() = _binding!!
+    private var fileImage: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +42,18 @@ class UpdateProfileActivity : MyActivity() {
                 edtEmail.setText(user.email)
                 edtPhone.setText(user.phone)
                 tvInisial.text = user.name.getInitial()
+                Picasso.get().load(Constants.USER_URL + user.image).into(binding.imageProfile)
             }
         }
     }
 
     private fun mainButton() {
         binding.btnSimpan.setOnClickListener {
-            register()
+            if (fileImage != null) {
+                upload()
+            } else {
+                update()
+            }
         }
 
         binding.imageProfile.setOnClickListener {
@@ -56,6 +63,7 @@ class UpdateProfileActivity : MyActivity() {
 
     private fun picImage() {
         ImagePicker.with(this)
+                .crop()
                 .maxResultSize(1080, 1080, true)
                 .createIntentFromDialog { launcher.launch(it) }
     }
@@ -63,12 +71,14 @@ class UpdateProfileActivity : MyActivity() {
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             val uri = it.data?.data!!
+
             // Use the uri to load the image
-            Picasso.get().load(uri).into(binding.imageProfile)
+            fileImage = File(uri.path!!)
+            Picasso.get().load(fileImage!!).into(binding.imageProfile)
         }
     }
 
-    private fun register() {
+    private fun update() {
 
         if (binding.edtName.isEmpty()) return
         if (binding.edtPhone.isEmpty()) return
@@ -92,6 +102,25 @@ class UpdateProfileActivity : MyActivity() {
                 }
                 State.ERROR -> {
                     progress.dismiss()
+                    toastError(it.message ?: "Error")
+                }
+                State.LOADING -> {
+                    progress.show()
+                }
+            }
+        })
+    }
+
+    private fun upload() {
+        val idUser = Prefs.getUser()?.id
+        val file = fileImage.toMultipartBody()
+
+        viewModel.uploadUser(idUser, file).observe(this, {
+            when (it.state) {
+                State.SUCCESS -> {
+                    update()
+                }
+                State.ERROR -> {
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {

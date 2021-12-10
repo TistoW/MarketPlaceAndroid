@@ -28,4 +28,11 @@ interface ApiService {
         @Path("id") int: Int,
         @Body data: UpdateProfileRequest
     ): Response<LoginResponse>
+
+    @Multipart
+    @POST("upload-user/{id}")
+    suspend fun uploadUser(
+        @Path("id") int: Int? = null,
+        @Part data: MultipartBody.Part? = null
+    ): Response<LoginResponse>
 }
