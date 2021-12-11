@@ -30,16 +30,11 @@ class HomeFragment : Fragment() {
 
     fun setData(){
 
-        homeViewModel.text.observe(viewLifecycleOwner, {
-            binding.tvTitel.text = it
-        })
 
     }
 
     fun mainButton(){
-        binding.btnTest.setOnClickListener {
-            homeViewModel.ubahData()
-        }
+
     }
 
     override fun onDestroyView() {

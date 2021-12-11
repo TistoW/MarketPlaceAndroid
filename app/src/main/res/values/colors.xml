@@ -12,6 +12,10 @@
     <color name="colorPrimaryVariant">@color/colorPrimary_700</color>
     <color name="colorOnPrimary">@color/white</color>
 
+    <color name="colorPrimary_50">#e6f5e4</color>
+    <color name="colorPrimary_100">#c2e6bc</color>
+    <color name="colorPrimary_200">#9ad691</color>
+    <color name="colorPrimary_300">#6dc762</color>
     <color name="colorPrimary_400">#47bb3d</color>
     <color name="colorPrimary_500">#09af00</color>
     <color name="colorPrimary_600">#00a000</color>
