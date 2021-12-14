@@ -5,12 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_15sdp"
     tools:context=".ui.akun.AkunFragment">
+
+    <include
+        android:id="@+id/ly_toolbar"
+        layout="@layout/layout_toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,7 +64,7 @@
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tisto wahyudi"
+                    android:text="Nama toko"
                     android:textColor="@color/dark"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
@@ -69,15 +73,8 @@
                     android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0811111"
-                    android:textColor="@color/dark"
-                    android:textSize="@dimen/_12ssp" />
-
-                <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="email@gmail.com"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="Rp.0"
                     android:textColor="@color/dark"
                     android:textSize="@dimen/_12ssp" />
 
@@ -85,23 +82,25 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btn_update"
-            style="@style/image_clickable"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_baseline_edit_24" />
 
     </RelativeLayout>
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Sekor performa Toko"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/_11ssp" />
+
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btn_toko"
         style="@style/Button.OutlineBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="0dp">
 
@@ -110,48 +109,24 @@
             android:layout_height="match_parent"
             android:padding="@dimen/_10sdp">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal">
+                android:text="Transaksi sejak bergabung"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_11ssp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mau_mulai_berbisnis"
-                    android:textColor="@color/dark"
-                    android:textSize="@dimen/_12ssp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_3sdp"
-                    android:text="@string/buka_toko_gratis"
-                    android:textColor="@color/dark"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/_14sdp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+                android:text="0/100"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:text="Logout" />
-
 
 </LinearLayout>
