@@ -22,6 +22,8 @@
             <include layout="@layout/layout_home_member" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:id="@+id/rv_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -45,6 +47,7 @@
                     android:layout_marginStart="@dimen/_10sdp">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_slider"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
@@ -84,7 +87,7 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:scrollbars="none"
                 android:visibility="visible">
@@ -95,8 +98,9 @@
                     android:layout_marginStart="@dimen/_10sdp">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_product_terlaris"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="3"
@@ -133,6 +137,7 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_terbaru"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_5sdp"

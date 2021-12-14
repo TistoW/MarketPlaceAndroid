@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_10sdp"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/_8sdp">
 
@@ -20,6 +20,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/image_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
@@ -30,28 +31,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_minus15sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:backgroundTint="#E1A902"
-            app:cardCornerRadius="@dimen/_10sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:text="Terlaris"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
-
-        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,6 +47,7 @@
                 android:textSize="@dimen/_11ssp" />
 
             <TextView
+                android:id="@+id/tv_harga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_3sdp"
@@ -77,10 +57,48 @@
                 android:textStyle="bold" />
 
 
+            <LinearLayout
+                android:id="@+id/ly_diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pinkSoftSecondary"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/tv_discount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:layout_marginVertical="@dimen/_3sdp"
+                        android:text="10%"
+                        android:textColor="@color/pinkSoft"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_hargaAsli"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Rp.10.000"
+                    android:textSize="@dimen/_9sdp" />
+
+            </LinearLayout>
+
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ly_grosir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary_50"
+                android:backgroundTint="@color/greenSoftSecondary"
                 app:cardElevation="0dp">
 
                 <TextView
@@ -89,16 +107,16 @@
                     android:layout_marginHorizontal="@dimen/_3sdp"
                     android:layout_marginVertical="@dimen/_3sdp"
                     android:text="Grosir"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/greenSoft"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
 
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
+                android:id="@+id/tv_pengiriman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_3sdp"
                 android:layout_marginVertical="@dimen/_3sdp"
                 android:text="Jakarta pusat"
                 android:textSize="@dimen/_9sdp" />
@@ -116,6 +134,7 @@
                     app:tint="#FFC107" />
 
                 <TextView
+                    android:id="@+id/tv_reting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_2sdp"
@@ -125,7 +144,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
 
     </LinearLayout>
 

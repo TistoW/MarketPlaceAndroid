@@ -1,121 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/_10sdp"
-    android:orientation="vertical"
-    app:cardCornerRadius="@dimen/_8sdp">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/asset_produk1" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_minus15sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:backgroundTint="#E1A902"
-            app:cardCornerRadius="@dimen/_10sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:text="Terlaris"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
-
-        </com.google.android.material.card.MaterialCardView>
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/_2sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_5sdp">
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:text="Nama produk"
-                android:textSize="@dimen/_11ssp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:text="Rp 10.000"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
-
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/asset_produk1" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary_50"
-                app:cardElevation="0dp">
+                android:layout_marginStart="@dimen/_minus15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:backgroundTint="#E1A902"
+                app:cardCornerRadius="@dimen/_10sdp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_3sdp"
                     android:layout_marginVertical="@dimen/_3sdp"
-                    android:text="Grosir"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:text="Terlaris"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
 
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_3sdp"
-                android:layout_marginVertical="@dimen/_3sdp"
-                android:text="Jakarta pusat"
-                android:textSize="@dimen/_9sdp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/_10sdp"
-                    android:layout_height="@dimen/_10sdp"
-                    android:src="@drawable/ic_baseline_star_24"
-                    app:tint="#FFC107" />
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2sdp"
-                    android:text="5.0 | Terjual 1.1K"
+                    android:layout_marginVertical="@dimen/_3sdp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="Nama produk"
+                    android:textSize="@dimen/_11ssp" />
+
+                <TextView
+                    android:id="@+id/tv_harga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_3sdp"
+                    android:text="Rp 10.000"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/ly_diskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pinkSoftSecondary"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:id="@+id/tv_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_3sdp"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:text="10%"
+                            android:textColor="@color/pinkSoft"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tv_hargaAsli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="Rp.10.000"
+                        android:textSize="@dimen/_9sdp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/ly_grosir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/greenSoftSecondary"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_3sdp"
+                        android:layout_marginVertical="@dimen/_3sdp"
+                        android:text="Grosir"
+                        android:textColor="@color/greenSoft"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_pengiriman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_3sdp"
+                    android:text="Jakarta pusat"
                     android:textSize="@dimen/_9sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/ic_baseline_star_24"
+                        app:tint="#FFC107" />
+
+                    <TextView
+                        android:id="@+id/tv_reting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:text="5.0 | Terjual 1.1K"
+                        android:textSize="@dimen/_9sdp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+
         </LinearLayout>
 
+    </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
 
-
-</com.google.android.material.card.MaterialCardView>
+</RelativeLayout>
