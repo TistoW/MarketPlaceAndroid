@@ -7,7 +7,12 @@ import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.databinding.ActivityBukaTokoBinding
 import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
 import com.inyongtisto.marketplace.databinding.ActivityTokoSayaBinding
+import com.inyongtisto.marketplace.util.Constants
+import com.inyongtisto.marketplace.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
 import com.inyongtisto.myhelper.extension.setToolbar
+import com.inyongtisto.myhelper.extension.toGone
+import com.squareup.picasso.Picasso
 
 class TokoSayaActivity : AppCompatActivity() {
 
@@ -20,7 +25,21 @@ class TokoSayaActivity : AppCompatActivity() {
         setToolbar(binding.lyToolbar.toolbar, "Toko Saya")
         // get data dari server
 
+        setData()
+    }
 
+    private fun setData() {
+        val user = Prefs.getUser()
+        if (user != null) {
+            binding.apply {
+                if (user.toko != null) {
+                    tvName.text = user.toko.name
+                    tvInisial.text = user.toko.name.getInitial()
+                    Picasso.get().load(Constants.USER_URL + user.toko.name)
+                        .into(binding.imageProfile)
+                }
+            }
+        }
     }
 
     private fun mainButton() {

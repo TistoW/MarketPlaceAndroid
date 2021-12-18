@@ -1,9 +1,8 @@
 package com.inyongtisto.marketplace.ui.auth
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.inyongtisto.marketplace.NavigationActivity
+import com.inyongtisto.marketplace.ui.navigation.NavigationActivity
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.databinding.ActivityLoginBinding

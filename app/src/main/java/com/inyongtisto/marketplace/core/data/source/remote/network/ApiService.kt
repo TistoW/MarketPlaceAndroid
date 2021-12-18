@@ -42,11 +42,16 @@ interface ApiService {
 
     @POST("toko")
     suspend fun createToko(
-            @Body data: CreateTokoRequest
+        @Body data: CreateTokoRequest
     ): Response<BaseResponse<TokoResponse>>
 
     @POST("product")
     suspend fun createProduct(
-            @Body data: CreateTokoRequest
+        @Body data: CreateTokoRequest
     ): Response<BaseResponse<ProductResponse>>
+
+    @GET("toko-user/{id}")
+    suspend fun getUser(
+        @Path("id") int: Int? = null
+    ): Response<LoginResponse>
 }

@@ -20,4 +20,6 @@ class RemoteDataSource(private val api: ApiService) {
 
     suspend fun createToko(data: CreateTokoRequest) = api.createToko(data)
 
+    suspend fun getUser(id: Int? = null) = api.getUser(id)
+
 }

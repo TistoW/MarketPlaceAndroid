@@ -2,9 +2,8 @@ package com.inyongtisto.marketplace.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.inyongtisto.marketplace.NavigationActivity
+import com.inyongtisto.marketplace.ui.navigation.NavigationActivity
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
-import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
 import com.inyongtisto.marketplace.databinding.ActivityRegisterBinding
 import com.inyongtisto.myhelper.extension.*

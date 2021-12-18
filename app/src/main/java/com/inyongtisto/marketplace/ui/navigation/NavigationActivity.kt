@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace
+package com.inyongtisto.marketplace.ui.navigation
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,15 +6,22 @@ import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.inyongtisto.marketplace.R
+import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
 import com.inyongtisto.marketplace.ui.auth.LoginActivity
+import com.inyongtisto.marketplace.ui.toko.TokoSayaActivity
 import com.inyongtisto.marketplace.util.Prefs
+import com.inyongtisto.myhelper.extension.intentActivity
+import com.inyongtisto.myhelper.extension.toastError
+import com.inyongtisto.myhelper.extension.toastSimple
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNavigationBinding
+    private val viewModel: NavViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +29,15 @@ class NavigationActivity : AppCompatActivity() {
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupNav()
+        getUser()
+    }
+
+    private fun getUser() {
+        viewModel.getUser(Prefs.getUser()?.id ?: 0).observe(this, {})
+    }
+
+    private fun setupNav() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_navigation)
 

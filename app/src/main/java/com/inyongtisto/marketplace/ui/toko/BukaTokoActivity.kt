@@ -1,14 +1,9 @@
 package com.inyongtisto.marketplace.ui.toko
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.inyongtisto.marketplace.NavigationActivity
-import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.inyongtisto.marketplace.databinding.ActivityBukaTokoBinding
-import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
 import com.inyongtisto.marketplace.ui.base.MyActivity
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.*
