@@ -61,4 +61,9 @@ class NavigationActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
     }
+
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+    }
 }

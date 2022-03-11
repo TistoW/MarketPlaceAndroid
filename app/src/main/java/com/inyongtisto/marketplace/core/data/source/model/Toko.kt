@@ -1,10 +1,10 @@
 package com.inyongtisto.marketplace.core.data.source.model
 
 data class Toko(
-    val id: Int?,
-    val name: String?,
-    val image: String?,
-    val kota: String?,
-    val updated_at: String?,
-    val created_at: String?,
+    val id: Int? = null,
+    val name: String? = null,
+    val image: String? = null,
+    val kota: String? = null,
+    val updated_at: String? = null,
+    val created_at: String? = null,
 )

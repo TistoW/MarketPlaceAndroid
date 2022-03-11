@@ -9,5 +9,5 @@ data class User(
     val phone: String?,
     val updated_at: String?,
     val created_at: String?,
-    val toko: Toko?
+    var toko: Toko?
 )
