@@ -8,4 +8,7 @@
     <string name="cari_produk_disini">Cari produk disini</string>
     <string name="buka_toko_gratis">Buka Toko Gratis</string>
     <string name="mau_mulai_berbisnis">Mau Mulai Berbisnis?</string>
+    <string name="pilih_alamat">Pilih Alamat</string>
+    <string name="tidak_ada_data">Tidak ada data</string>
+    <string name="alamat">Alamat</string>
 </resources>

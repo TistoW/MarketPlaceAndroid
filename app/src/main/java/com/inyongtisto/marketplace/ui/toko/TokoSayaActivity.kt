@@ -7,9 +7,11 @@ import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.databinding.ActivityBukaTokoBinding
 import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
 import com.inyongtisto.marketplace.databinding.ActivityTokoSayaBinding
+import com.inyongtisto.marketplace.ui.alamatToko.ListAlamatTokoActivity
 import com.inyongtisto.marketplace.util.Constants
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
+import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.setToolbar
 import com.inyongtisto.myhelper.extension.toGone
 import com.squareup.picasso.Picasso
@@ -26,6 +28,7 @@ class TokoSayaActivity : AppCompatActivity() {
         // get data dari server
 
         setData()
+        setupListener()
     }
 
     private fun setData() {
@@ -42,7 +45,12 @@ class TokoSayaActivity : AppCompatActivity() {
         }
     }
 
-    private fun mainButton() {
+    private fun setupListener() {
+        binding.apply {
+            btnAlamat.setOnClickListener {
+                intentActivity(ListAlamatTokoActivity::class.java)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

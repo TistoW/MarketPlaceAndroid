@@ -41,6 +41,7 @@
         <activity android:name=".ui.updateProfile.UpdateProfileActivity" />
         <activity android:name=".ui.toko.BukaTokoActivity" />
         <activity android:name=".ui.toko.TokoSayaActivity" />
+        <activity android:name=".ui.alamatToko.ListAlamatTokoActivity" />
     </application>
 
 </manifest>

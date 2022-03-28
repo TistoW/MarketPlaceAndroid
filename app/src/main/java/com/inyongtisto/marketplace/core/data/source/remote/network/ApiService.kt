@@ -1,16 +1,12 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
+import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
-import com.inyongtisto.marketplace.core.data.source.remote.response.BaseResponse
-import com.inyongtisto.marketplace.core.data.source.remote.response.LoginResponse
-import com.inyongtisto.marketplace.core.data.source.remote.response.ProductResponse
-import com.inyongtisto.marketplace.core.data.source.remote.response.TokoResponse
+import com.inyongtisto.marketplace.core.data.source.remote.response.*
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -43,15 +39,20 @@ interface ApiService {
     @POST("toko")
     suspend fun createToko(
         @Body data: CreateTokoRequest
-    ): Response<BaseResponse<TokoResponse>>
+    ): Response<BaseSingelResponse<TokoResponse>>
 
     @POST("product")
     suspend fun createProduct(
         @Body data: CreateTokoRequest
-    ): Response<BaseResponse<ProductResponse>>
+    ): Response<BaseSingelResponse<ProductResponse>>
 
     @GET("toko-user/{id}")
     suspend fun getUser(
         @Path("id") int: Int? = null
     ): Response<LoginResponse>
+
+    @GET("alamat-toko/{id}")
+    suspend fun getAlamatToko(
+        @Path("id") idToko: Int? = null
+    ): Response<BaseListResponse<AlamatToko>>
 }

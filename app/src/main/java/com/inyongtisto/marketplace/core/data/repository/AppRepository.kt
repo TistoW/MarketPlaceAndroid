@@ -130,4 +130,22 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
+    fun getAlamatToko() = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.getAlamatToko().let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val data = body?.data
+
+                    emit(Resource.success(data))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
 }

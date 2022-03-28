@@ -21,5 +21,8 @@ object Prefs : KotprefModel() {
         if (user.isEmpty()) return null
         return user.toModel(User::class.java)
     }
-
 }
+
+fun getTokoId() = Prefs.getUser()?.toko?.id
+
+

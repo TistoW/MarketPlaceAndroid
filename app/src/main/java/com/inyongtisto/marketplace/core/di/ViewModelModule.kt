@@ -1,5 +1,6 @@
 package com.inyongtisto.marketplace.core.di
 
+import com.inyongtisto.marketplace.ui.alamatToko.AlamatTokoViewModel
 import com.inyongtisto.marketplace.ui.auth.AuthViewModel
 import com.inyongtisto.marketplace.ui.navigation.NavViewModel
 import com.inyongtisto.marketplace.ui.toko.TokoViewModel
@@ -10,4 +11,5 @@ val viewModelModule = module {
     viewModel { AuthViewModel(get()) }
     viewModel { TokoViewModel(get()) }
     viewModel { NavViewModel(get()) }
+    viewModel { AlamatTokoViewModel(get()) }
 }

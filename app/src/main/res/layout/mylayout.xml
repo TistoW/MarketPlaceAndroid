@@ -13,21 +13,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hai I'm Tisto"
-        android:textStyle="bold"
+        android:textColor="#030303"
         android:textSize="@dimen/_35ssp"
-        android:textColor="#030303"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="If You like this video, please"
-        android:textStyle="bold"
+        android:textColor="#030303"
         android:textSize="@dimen/_25ssp"
-        android:textColor="#030303"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_120sdp"
-        android:src="@drawable/subscribe"/>
+        android:src="@drawable/subscribe" />
 
 </LinearLayout>

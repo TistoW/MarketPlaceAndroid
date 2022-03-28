@@ -85,7 +85,6 @@
 
     </RelativeLayout>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="0dp">
 
@@ -128,5 +127,53 @@
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:background="@color/grey2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:text="Nama toko"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            android:textColor="@color/grey7" />
+
+        <LinearLayout
+            android:id="@+id/btn_alamat"
+            style="@style/layout_clickable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_6sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_placeholder"
+                app:tint="@color/grey6" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="@string/alamat"
+                android:textAppearance="@style/TypographyStyles.Text2"
+                android:textColor="@color/grey6" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

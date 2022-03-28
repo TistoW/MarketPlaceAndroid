@@ -1,5 +1,5 @@
 package com.inyongtisto.marketplace.ui.base
 
-import com.inyongtisto.myhelper.base.BaseActivity
+import com.inyongtisto.myhelper.base.CustomeActivity
 
-abstract class MyActivity : BaseActivity()
+abstract class MyActivity : CustomeActivity()

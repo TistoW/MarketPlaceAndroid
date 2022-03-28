@@ -5,8 +5,8 @@ import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoReq
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.inyongtisto.marketplace.util.getTokoId
 import okhttp3.MultipartBody
-import retrofit2.http.Multipart
 
 class RemoteDataSource(private val api: ApiService) {
 
@@ -16,10 +16,13 @@ class RemoteDataSource(private val api: ApiService) {
 
     suspend fun updateUser(data: UpdateProfileRequest) = api.updateUser(data.id, data)
 
-    suspend fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = api.uploadUser(id, fileImage)
+    suspend fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) =
+        api.uploadUser(id, fileImage)
 
     suspend fun createToko(data: CreateTokoRequest) = api.createToko(data)
 
     suspend fun getUser(id: Int? = null) = api.getUser(id)
+
+    suspend fun getAlamatToko() = api.getAlamatToko(getTokoId())
 
 }
