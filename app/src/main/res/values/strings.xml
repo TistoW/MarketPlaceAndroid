@@ -11,4 +11,9 @@
     <string name="pilih_alamat">Pilih Alamat</string>
     <string name="tidak_ada_data">Tidak ada data</string>
     <string name="alamat">Alamat</string>
+    <string name="label_lokasi">Label Lokasi</string>
+    <string name="alamat_toko">Alamat Toko</string>
+    <string name="kode_pos">Kode pos</string>
+    <string name="email">Email</string>
+    <string name="no_telepon">No Telepon</string>
 </resources>

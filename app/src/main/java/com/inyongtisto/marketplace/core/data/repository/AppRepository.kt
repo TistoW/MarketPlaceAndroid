@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.repository
 
 import com.inyongtisto.marketplace.core.data.source.local.LocalDataSource
+import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.remote.RemoteDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.network.Resource
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
@@ -148,4 +149,19 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
+    fun createAlamatToko(data: AlamatToko) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.createAlamatToko(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()?.data
+                    emit(Resource.success(body))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
 }

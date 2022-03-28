@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.source.model
 
 data class AlamatToko(
+    val label: String? = null,
     val alamat: String? = null,
     val created_at: String? = null,
     val email: String? = null,

@@ -21,9 +21,24 @@ class ListAlamatTokoActivity : MyActivity() {
         setContentView(binding.root)
         setToolbar(binding.lyToolbar.toolbar, "List Alamat")
 
+        setupUI()
         mainButton()
         getData()
         setupAdapter()
+    }
+
+    override fun onResume() {
+        getData()
+        super.onResume()
+    }
+
+    private fun setupUI() {
+        binding.apply {
+            lyToolbar.btnTambah.toVisible()
+            lyToolbar.btnTambah.setOnClickListener {
+                intentActivity(TambahAlamatTokoActivity::class.java)
+            }
+        }
     }
 
     private fun setupAdapter() {
