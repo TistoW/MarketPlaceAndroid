@@ -15,7 +15,7 @@ import com.inyongtisto.marketplace.util.getTokoId
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TambahAlamatTokoActivity : MyActivity() {
+class EditAlamatTokoActivity : MyActivity() {
 
     private lateinit var binding: ActivityTambahAlamatTokoBinding
     private val viewModel: AlamatTokoViewModel by viewModel()
@@ -26,18 +26,34 @@ class TambahAlamatTokoActivity : MyActivity() {
     private var kota: String? = null
     private var kecamatan: String? = null
 
+    private var alamat = AlamatToko()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahAlamatTokoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setToolbar(binding.lyToolbar.toolbar, "Tambah Alamat")
+        setToolbar(binding.lyToolbar.toolbar, "Ubah Alamat")
 
+        getExtra()
         setupUI()
         mainButton()
     }
 
+    private fun getExtra() {
+        val extra: String? = getStringExtra()
+        alamat = extra.toModel(AlamatToko::class.java) ?: AlamatToko()
+
+        binding.apply {
+            edtLabel.setText(alamat.label ?: "Rumah")
+            edtAlamat.setText(alamat.alamat)
+            edtKodePos.setText(alamat.kodepost)
+            edtEmail.setText(alamat.email)
+            edtPhone.setText(alamat.phone)
+        }
+    }
+
     private fun setupUI() {
-        // 0, 1, 2, 3
+        //                          0,                 1,              2,             3
         val listProvinsi = listOf("Pilih Provinsi", "Jawa Timur", "Jawa Tengah", "Jawa Barat")
         val listKota = listOf("Pilih Kota", "Lamongan", "Semarang", "Bogor")
         val listKecamatan = listOf("Pilih Kecamatan", "Solokuro", "Ngalian", "Ngaglik")
@@ -71,6 +87,18 @@ class TambahAlamatTokoActivity : MyActivity() {
                 kecamatan = listKecamatan[it]
             }
         }
+
+        binding.apply {
+            val indexProv = listProvinsi.indexOfFirst { it == alamat.provinsi }
+            spnProvinsi.setSelection(indexProv)
+
+            val indexKota = listKota.indexOfFirst { it == alamat.kota }
+            spnKota.setSelection(indexKota)
+
+            val indexKec = listKecamatan.indexOfFirst { it == alamat.kecamatan }
+            spnKecamatan.setSelection(indexKec)
+        }
+
     }
 
     private fun mainButton() {
@@ -115,6 +143,7 @@ class TambahAlamatTokoActivity : MyActivity() {
 
     private fun simpan() {
         val reqData = AlamatToko(
+            id = alamat.id,
             tokoId = getTokoId(),
             label = binding.edtLabel.getString(),
             alamat = binding.edtAlamat.getString(),
@@ -128,11 +157,11 @@ class TambahAlamatTokoActivity : MyActivity() {
             email = binding.edtEmail.getString(),
             phone = binding.edtPhone.getString(),
         )
-        viewModel.create(reqData).observe(this) {
+        viewModel.update(reqData).observe(this) {
             when (it.state) {
                 State.SUCCESS -> {
                     progress.dismiss()
-                    toastSuccess("Berhasil menambah alamat")
+                    toastSuccess("Berhasil merubah data alamat")
                     onBackPressed()
                 }
                 State.ERROR -> {

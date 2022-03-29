@@ -43,6 +43,7 @@
         <activity android:name=".ui.toko.TokoSayaActivity" />
         <activity android:name=".ui.alamatToko.ListAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.TambahAlamatTokoActivity" />
+        <activity android:name=".ui.alamatToko.EditAlamatTokoActivity" />
     </application>
 
 </manifest>
