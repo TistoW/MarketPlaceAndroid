@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.model.Category
+import com.inyongtisto.marketplace.core.data.source.model.User
 import com.inyongtisto.marketplace.databinding.ItemAlamatTokoBinding
 import com.inyongtisto.marketplace.databinding.ItemHomeCategoryBinding
 import com.inyongtisto.marketplace.ui.alamatToko.EditAlamatTokoActivity
@@ -19,7 +20,8 @@ import java.time.Instant
 import kotlin.math.log
 
 @SuppressLint("NotifyDataSetChanged")
-class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>() {
+class AlamatTokoAdapter(val onDelete: (item: AlamatToko, pos: Int) -> Unit) :
+    RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>() {
 
     private var data = ArrayList<AlamatToko>()
 
@@ -46,16 +48,17 @@ class AlamatTokoAdapter : RecyclerView.Adapter<AlamatTokoAdapter.ViewHolder>() {
                                 EditAlamatTokoActivity::class.java,
                                 item.toJson()
                             )
-                            "Hapus" -> logs("Hapus")
+                            "Hapus" -> onDelete.invoke(item, adapterPosition)
                         }
-
-//                        val i = Intent(context, EditAlamatTokoActivity::class.java)
-//                        i.putExtra("extra", item.toJson())
-//                        context.startActivity(i)
                     }
                 }
             }
         }
+    }
+
+    fun removeAt(index: Int) {
+        data.removeAt(index)
+        notifyItemRemoved(index)
     }
 
     fun addItems(items: List<AlamatToko>) {

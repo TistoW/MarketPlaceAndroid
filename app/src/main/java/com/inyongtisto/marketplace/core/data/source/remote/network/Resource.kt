@@ -1,6 +1,6 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
-data class Resource<out T>(val state: State, val data: T?, val message: String?) {
+data class Resource<out T>(val state: State, val data: T?, val message: String?, val loading :Boolean = false) {
 
     companion object {
 
@@ -13,7 +13,7 @@ data class Resource<out T>(val state: State, val data: T?, val message: String?)
         }
 
         fun <T> loading(data: T?): Resource<T> {
-            return Resource(State.LOADING, data, null)
+            return Resource(State.LOADING, data, null, loading = true)
         }
 
     }
