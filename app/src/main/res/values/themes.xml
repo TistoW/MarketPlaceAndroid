@@ -19,5 +19,125 @@
 
     </style>
 
+    <style name="TypographyStyles.Heading1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TypographyStyles.Heading2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TypographyStyles.Heading3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TypographyStyles.Heading4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TypographyStyles.Heading5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TypographyStyles.Heading6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TypographyStyles.TextParent" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/worksans_regular</item>
+        <item name="android:fontFamily">@font/worksans_regular</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TypographyStyles.Default" parent="TypographyStyles.Text3" />
+
+    <style name="TypographyStyles.Default.Bold" parent="TypographyStyles.TextParent">
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.SubText" parent="TypographyStyles.Text4" />
+
+    <style name="TypographyStyles.Text1" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text1.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.Text2" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text2.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.Text3" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text3.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.Text4" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text4.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.Text5" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text5.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_8ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
+
+    <style name="TypographyStyles.Text6" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_7ssp</item>
+    </style>
+
+    <style name="TypographyStyles.Text6.Bold" parent="TypographyStyles.TextParent">
+        <item name="android:textSize">@dimen/_7ssp</item>
+        <item name="fontFamily">@font/worksans_semibold</item>
+        <item name="android:fontFamily">@font/worksans_semibold</item>
+    </style>
 
 </resources>

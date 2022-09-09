@@ -46,13 +46,13 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:text="Jl, kenangan denagn mantan, Kec, Kembangan, kota jakarta Barat, Jakarta"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6" />
+            android:textColor="@color/gray3" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:background="@color/grey2" />
+            android:background="@color/gray5" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_phone"
@@ -63,14 +63,14 @@
             android:gravity="center_vertical"
             android:text="0812345678"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6"
-            app:drawableTint="@color/grey6" />
+            android:textColor="@color/gray3"
+            app:drawableTint="@color/gray3" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:background="@color/grey2" />
+            android:background="@color/gray5" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_email"
@@ -81,8 +81,8 @@
             android:gravity="center_vertical"
             android:text="email@gmail.com"
             android:textAppearance="@style/TypographyStyles.Text3"
-            android:textColor="@color/grey6"
-            app:drawableTint="@color/grey6" />
+            android:textColor="@color/gray3"
+            app:drawableTint="@color/gray3" />
 
     </LinearLayout>
 

@@ -61,7 +61,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Provinsi"
                     android:textAppearance="@style/TypographyStyles.Text3"
-                    android:textColor="@color/grey6" />
+                    android:textColor="@color/gray3" />
 
                 <Spinner
                     android:id="@+id/spn_provinsi"
@@ -75,7 +75,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Kota"
                     android:textAppearance="@style/TypographyStyles.Text3"
-                    android:textColor="@color/grey6" />
+                    android:textColor="@color/gray3" />
 
                 <Spinner
                     android:id="@+id/spn_kota"
@@ -89,7 +89,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Kecamatan"
                     android:textAppearance="@style/TypographyStyles.Text3"
-                    android:textColor="@color/grey6" />
+                    android:textColor="@color/gray3" />
 
                 <Spinner
                     android:id="@+id/spn_kecamatan"

@@ -44,6 +44,7 @@
         <activity android:name=".ui.alamatToko.ListAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.TambahAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.EditAlamatTokoActivity" />
+        <activity android:name=".ui.product.CreateProductActivity" />
     </application>
 
 </manifest>

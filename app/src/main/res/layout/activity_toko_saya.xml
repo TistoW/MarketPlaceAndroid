@@ -132,13 +132,81 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_marginVertical="@dimen/_15sdp"
-        android:background="@color/grey2" />
+        android:background="@color/gray5" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_15sdp">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/produk"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            android:textColor="@color/gray2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnCreateProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tambah_produk"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnListProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1">
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daftar_produk"
+                android:textAppearance="@style/TypographyStyles.Text1.Bold"
+                android:textColor="@color/gray1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chevron_right_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvProducts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv2"
+                app:tint="@color/gray3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProducts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_1_produk"
+                android:textAppearance="@style/TypographyStyles.Text2"
+                android:textColor="@color/gray2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
         android:orientation="vertical">
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -146,7 +214,7 @@
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:text="Nama toko"
             android:textAppearance="@style/TypographyStyles.Text2.Bold"
-            android:textColor="@color/grey7" />
+            android:textColor="@color/gray1" />
 
         <LinearLayout
             android:id="@+id/btn_alamat"
@@ -162,7 +230,7 @@
                 android:layout_width="@dimen/_16sdp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_placeholder"
-                app:tint="@color/grey6" />
+                app:tint="@color/gray3" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -170,7 +238,7 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:text="@string/alamat"
                 android:textAppearance="@style/TypographyStyles.Text2"
-                android:textColor="@color/grey6" />
+                android:textColor="@color/gray2" />
 
         </LinearLayout>
 

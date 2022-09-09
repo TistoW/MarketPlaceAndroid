@@ -29,7 +29,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:src="@drawable/ic_baseline_add_24"
             android:visibility="gone"
-            app:tint="@color/grey6" />
+            app:tint="@color/gray3" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/btn_simpan"

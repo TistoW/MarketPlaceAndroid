@@ -16,4 +16,38 @@
     <string name="kode_pos">Kode pos</string>
     <string name="email">Email</string>
     <string name="no_telepon">No Telepon</string>
+
+    <string name="foto_produk">Foto produk</string>
+    <string name="star">*</string>
+    <string name="tambah_foto">Tambah Foto</string>
+    <string name="isi_nama_produk_yang_kamu_jual">Isi nama produk yang kamu jual</string>
+    <string name="nama">Nama</string>
+    <string name="tips">Tips: Jenis Produk + Keterangan Tambahan</string>
+    <string name="tips_harga">Tips: Tentukan harga sesuai pasaran produkmu</string>
+    <string name="harga_produk">Harga Produk</string>
+    <string name="stok">Stok</string>
+    <string name="kategori">Kategori</string>
+    <string name="pilih_kategori">Pilih kategori</string>
+    <string name="harga">Harga</string>
+    <string name="rp_">Rp.</string>
+    <string name="_1">1</string>
+    <string name="_500">500</string>
+    <string name="gr">gr</string>
+    <string name="discount">Discount</string>
+    <string name="diskon">Diskon</string>
+    <string name="persen">%</string>
+    <string name="deskripsi_produk_kamu">Deskripsi produk kamu</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="grosir">Grosir</string>
+    <string name="jumlah_minimal">Jumlah Minimal</string>
+    <string name="harga_grosir">Harga Grosir</string>
+    <string name="varian">Varian</string>
+    <string name="ubah">Ubah</string>
+    <string name="tambah_varian_agar_pembeli_mudah_memilih">Tambah varian agar pembeli mudah memilih</string>
+    <string name="tambah_varian">Tambah Varian</string>
+    <string name="produk">Produk</string>
+    <string name="tambah_produk">Tambah Produk</string>
+    <string name="daftar_produk">Daftar Produk</string>
+    <string name="_1_produk">1 produk</string>
 </resources>
+

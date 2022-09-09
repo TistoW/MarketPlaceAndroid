@@ -22,7 +22,8 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="2"
-        android:text="Category" />
+        android:text="Category"
+        android:textAppearance="@style/TypographyStyles.Text4" />
 
 
 </LinearLayout>

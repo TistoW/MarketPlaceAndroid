@@ -15,61 +15,17 @@ import kotlinx.coroutines.flow.flow
 import okhttp3.MultipartBody
 import java.lang.Exception
 
-class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
+class AlamatRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
 
-    fun login(data: LoginRequest) = flow {
+    fun getAlamatToko() = flow {
         emit(Resource.loading(null))
         try {
-            remote.login(data).let {
+            remote.getAlamatToko().let {
                 if (it.isSuccessful) {
-                    Prefs.isLogin = true
                     val body = it.body()
-                    val user = body?.data
-                    Prefs.setUser(user)
-                    emit(Resource.success(user))
-                    logs("succes:" + body.toString())
-                } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
-                    logs("Error:" + "keteragan error")
-                }
-            }
-        } catch (e: Exception) {
-            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
-            logs("Error:" + e.message)
-        }
-    }
+                    val data = body?.data
 
-    fun register(data: RegisterRequest) = flow {
-        emit(Resource.loading(null))
-        try {
-            remote.register(data).let {
-                if (it.isSuccessful) {
-                    Prefs.isLogin = true
-                    val body = it.body()
-                    val user = body?.data
-                    Prefs.setUser(user)
-                    emit(Resource.success(user))
-                    logs("succes:" + body.toString())
-                } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
-                    logs("Error:" + "keteragan error")
-                }
-            }
-        } catch (e: Exception) {
-            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
-            logs("Error:" + e.message)
-        }
-    }
-
-    fun updateUser(data: UpdateProfileRequest) = flow {
-        emit(Resource.loading(null))
-        try {
-            remote.updateUser(data).let {
-                if (it.isSuccessful) {
-                    val body = it.body()
-                    val user = body?.data
-                    Prefs.setUser(user)
-                    emit(Resource.success(user))
+                    emit(Resource.success(data))
                 } else {
                     emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
                 }
@@ -79,28 +35,10 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
-    fun uploadUser(id: Int? = null, fileImage: MultipartBody.Part? = null) = flow {
+    fun createAlamatToko(data: AlamatToko) = flow {
         emit(Resource.loading(null))
         try {
-            remote.uploadUser(id, fileImage).let {
-                if (it.isSuccessful) {
-                    val body = it.body()
-                    val user = body?.data
-                    Prefs.setUser(user)
-                    emit(Resource.success(user))
-                } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
-                }
-            }
-        } catch (e: Exception) {
-            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
-        }
-    }
-
-    fun createToko(data: CreateTokoRequest) = flow {
-        emit(Resource.loading(null))
-        try {
-            remote.createToko(data).let {
+            remote.createAlamatToko(data).let {
                 if (it.isSuccessful) {
                     val body = it.body()?.data
                     emit(Resource.success(body))
@@ -113,15 +51,31 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
         }
     }
 
-    fun getUser(id: Int? = null) = flow {
+    fun updateAlamatToko(data: AlamatToko) = flow {
         emit(Resource.loading(null))
         try {
-            remote.getUser(id).let {
+            remote.updateAlamatToko(data).let {
+                if (it.isSuccessful) {
+                    val body = it.body()?.data
+                    emit(Resource.success(body))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+    fun deleteAlamatToko(id: Int?) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.deleteAlamatToko(id).let {
                 if (it.isSuccessful) {
                     val body = it.body()
-                    val user = body?.data
-                    Prefs.setUser(user)
-                    emit(Resource.success(user))
+                    val data = body?.data
+
+                    emit(Resource.success(data))
                 } else {
                     emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
                 }

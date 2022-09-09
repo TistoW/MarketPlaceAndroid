@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.source.remote
 
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
+import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.network.ApiService
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
@@ -28,5 +29,10 @@ class RemoteDataSource(private val api: ApiService) {
     suspend fun createAlamatToko(data: AlamatToko) = api.createAlamatToko(data)
     suspend fun updateAlamatToko(data: AlamatToko) = api.updateAlamatToko(data.id, data)
     suspend fun deleteAlamatToko(id: Int?) = api.deleteAlamatToko(id)
+
+    suspend fun getProduct() = api.getProduct(getTokoId())
+    suspend fun createProduct(data: Product) = api.createProduct(data)
+    suspend fun updateProduct(data: Product) = api.updateProduct(data.id, data)
+    suspend fun deleteProduct(id: Int?) = api.deleteProduct(id)
 
 }

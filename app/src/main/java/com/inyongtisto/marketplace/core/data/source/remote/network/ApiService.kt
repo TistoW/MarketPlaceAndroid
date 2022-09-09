@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
+import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
@@ -71,4 +72,25 @@ interface ApiService {
     suspend fun deleteAlamatToko(
         @Path("id") id: Int? = null
     ): Response<BaseSingelResponse<AlamatToko>>
+
+    @GET("product/{id}")
+    suspend fun getProduct(
+        @Path("id") idToko: Int? = null
+    ): Response<BaseListResponse<Product>>
+
+    @POST("product")
+    suspend fun createProduct(
+        @Body data: Product
+    ): Response<BaseSingelResponse<Product>>
+
+    @PUT("product/{id}")
+    suspend fun updateProduct(
+        @Path("id") id: Int? = null,
+        @Body data: Product
+    ): Response<BaseSingelResponse<Product>>
+
+    @DELETE("product/{id}")
+    suspend fun deleteProduct(
+        @Path("id") id: Int? = null
+    ): Response<BaseSingelResponse<Product>>
 }

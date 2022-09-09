@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:text="Nama yang menarik lebih mudah diingat pembeli\nnama yang sudah dipilih tidak dapat diubah"
-                android:textColor="@color/grey6"
+                android:textColor="@color/gray3"
                 android:textSize="@dimen/_10ssp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:text="Lokasi toko untuk memudahkan pembeli mengetahui darimana barang akan dikirim"
-                android:textColor="@color/grey6"
+                android:textColor="@color/gray3"
                 android:textSize="@dimen/_10ssp" />
 
         </LinearLayout>
