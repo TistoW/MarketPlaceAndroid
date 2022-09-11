@@ -1,20 +1,46 @@
 package com.inyongtisto.marketplace.ui.product
 
+import android.app.Activity
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
+import com.github.drjacky.imagepicker.ImagePicker
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.databinding.ActivityCreateProductBinding
 import com.inyongtisto.marketplace.ui.base.MyActivity
+import com.inyongtisto.marketplace.ui.product.adapter.AddImageAdapter
 import com.inyongtisto.marketplace.util.defaultError
 import com.inyongtisto.marketplace.util.getTokoId
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
 import kotlin.random.Random
 
 class CreateProductActivity : MyActivity() {
 
     private lateinit var binding: ActivityCreateProductBinding
     private val viewModel: ProductViewModel by viewModel()
+    private val adapterImage = AddImageAdapter(
+        onAddImage = {
+            picImage()
+        },
+        onDeleteImage = {
+            removeImage(it)
+        }
+    )
+
+    private fun removeImage(index: Int) {
+        listImages.removeAt(index)
+        adapterImage.removeAt(index)
+
+        if (!listImages.any { it.isEmpty() }) {
+            listImages.add("")
+            adapterImage.addItems(listImages)
+            binding.btnTambahFoto.toVisible()
+        }
+    }
+
+    private var listImages = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +50,21 @@ class CreateProductActivity : MyActivity() {
 
         setupUI()
         mainButton()
+        setupImageProduct()
     }
 
     private fun setupUI() {
 
+    }
+
+    private fun setupImageProduct() {
+        listImages.add("145283_1662818750845_croppedImg.jpg")
+        listImages.add("145283_1662818750845_croppedImg.jpg")
+        listImages.add("145283_1662818750845_croppedImg.jpg")
+        listImages.add("145283_1662818750845_croppedImg.jpg")
+        listImages.add("") // sama aja dgn empty
+        adapterImage.addItems(listImages)
+        binding.rvImage.adapter = adapterImage
     }
 
     private fun mainButton() {
@@ -62,6 +99,16 @@ class CreateProductActivity : MyActivity() {
     }
 
     private fun create() {
+        var images = ""
+        var index = 1
+        listImages.forEach {
+            index++
+            if (it.isNotEmpty()) {
+                images += if (listImages.size < index + 1) it
+                else "$it|"
+            }
+        }
+
         val reqData = Product(
             tokoId = getTokoId(),
             name = binding.edtName.getString(),
@@ -69,7 +116,7 @@ class CreateProductActivity : MyActivity() {
             description = binding.edtDeskripsi.getString(),
             wight = binding.edtBerat.getString().toInt(),
             stock = binding.edtStok.getString().toInt(),
-            images = "1320105_gamis3.jpg"
+            images = images
 
         )
         viewModel.create(reqData).observe(this) {
@@ -82,6 +129,48 @@ class CreateProductActivity : MyActivity() {
                 State.ERROR -> {
                     progress.dismiss()
                     showErrorDialog(it.message.defaultError())
+                }
+                State.LOADING -> {
+                    progress.show()
+                }
+            }
+        }
+    }
+
+    private fun picImage() {
+        ImagePicker.with(this)
+            .crop()
+            .maxResultSize(1080, 1080, true)
+            .createIntentFromDialog { launcher.launch(it) }
+    }
+
+    private val launcher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val uri = it.data?.data!!
+
+                val fileImage = File(uri.path!!)
+                upload(fileImage)
+            }
+        }
+
+    private fun upload(fileImage: File) {
+        val file = fileImage.toMultipartBody()
+        viewModel.upload(file).observe(this) {
+            when (it.state) {
+                State.SUCCESS -> {
+                    progress.dismiss()
+                    val tempImages = listImages.filter { image -> image.isNotEmpty() } as ArrayList
+                    tempImages.add(it.data ?: "image")
+                    if (tempImages.size < 5) tempImages.add("")
+                    else binding.btnTambahFoto.toGone()
+
+                    listImages = tempImages
+                    adapterImage.addItems(tempImages)
+                }
+                State.ERROR -> {
+                    toastError(it.message ?: "Error")
+                    progress.dismiss()
                 }
                 State.LOADING -> {
                     progress.show()

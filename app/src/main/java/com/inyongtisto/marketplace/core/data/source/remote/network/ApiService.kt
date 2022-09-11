@@ -93,4 +93,10 @@ interface ApiService {
     suspend fun deleteProduct(
         @Path("id") id: Int? = null
     ): Response<BaseSingelResponse<Product>>
+
+    @Multipart
+    @POST("upload/product")
+    suspend fun uploadProduct(
+        @Part data: MultipartBody.Part? = null
+    ): Response<BaseSingelResponse<String>>
 }

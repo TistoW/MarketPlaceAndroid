@@ -12,24 +12,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/Theme.MarketPlace"
 
-        android:theme="@style/Theme.MarketPlace">
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.navigation.NavigationActivity"
             android:exported="true"
             android:label="@string/title_activity_navigation">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
-
 
         <activity
             android:name=".MainActivity"
@@ -44,7 +38,17 @@
         <activity android:name=".ui.alamatToko.ListAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.TambahAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.EditAlamatTokoActivity" />
-        <activity android:name=".ui.product.CreateProductActivity" />
+        <activity
+            android:name=".ui.product.CreateProductActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

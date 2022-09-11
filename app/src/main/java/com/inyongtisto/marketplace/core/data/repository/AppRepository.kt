@@ -9,6 +9,7 @@ import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
 import com.inyongtisto.marketplace.util.Prefs
+import com.inyongtisto.marketplace.util.defaultError
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
 import kotlinx.coroutines.flow.flow
@@ -29,7 +30,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     emit(Resource.success(user))
                     logs("succes:" + body.toString())
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                     logs("Error:" + "keteragan error")
                 }
             }
@@ -51,7 +52,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     emit(Resource.success(user))
                     logs("succes:" + body.toString())
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                     logs("Error:" + "keteragan error")
                 }
             }
@@ -71,7 +72,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     Prefs.setUser(user)
                     emit(Resource.success(user))
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                 }
             }
         } catch (e: Exception) {
@@ -89,7 +90,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     Prefs.setUser(user)
                     emit(Resource.success(user))
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                 }
             }
         } catch (e: Exception) {
@@ -105,7 +106,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     val body = it.body()?.data
                     emit(Resource.success(body))
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                 }
             }
         } catch (e: Exception) {
@@ -123,7 +124,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     Prefs.setUser(user)
                     emit(Resource.success(user))
                 } else {
-                    emit(Resource.error(it.getErrorBody()?.message ?: "Default error dongs", null))
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
                 }
             }
         } catch (e: Exception) {

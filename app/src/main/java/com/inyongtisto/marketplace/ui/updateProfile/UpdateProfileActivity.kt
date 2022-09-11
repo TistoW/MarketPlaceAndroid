@@ -92,7 +92,7 @@ class UpdateProfileActivity : MyActivity() {
                 name = binding.edtName.text.toString()
         )
 
-        viewModel.updateUser(body).observe(this, {
+        viewModel.updateUser(body).observe(this) {
 
             when (it.state) {
                 State.SUCCESS -> {
@@ -108,14 +108,14 @@ class UpdateProfileActivity : MyActivity() {
                     progress.show()
                 }
             }
-        })
+        }
     }
 
     private fun upload() {
         val idUser = Prefs.getUser()?.id
         val file = fileImage.toMultipartBody()
 
-        viewModel.uploadUser(idUser, file).observe(this, {
+        viewModel.uploadUser(idUser, file).observe(this) {
             when (it.state) {
                 State.SUCCESS -> {
                     update()
@@ -127,7 +127,7 @@ class UpdateProfileActivity : MyActivity() {
                     progress.show()
                 }
             }
-        })
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
