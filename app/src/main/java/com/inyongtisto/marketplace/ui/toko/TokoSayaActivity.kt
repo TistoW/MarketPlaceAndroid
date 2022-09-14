@@ -9,6 +9,7 @@ import com.inyongtisto.marketplace.databinding.ActivityNavigationBinding
 import com.inyongtisto.marketplace.databinding.ActivityTokoSayaBinding
 import com.inyongtisto.marketplace.ui.alamatToko.ListAlamatTokoActivity
 import com.inyongtisto.marketplace.ui.product.CreateProductActivity
+import com.inyongtisto.marketplace.ui.product.ListProductTokoActivity
 import com.inyongtisto.marketplace.util.Constants
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
@@ -53,7 +54,7 @@ class TokoSayaActivity : AppCompatActivity() {
             }
 
             btnListProduct.setOnClickListener {
-
+                intentActivity(ListProductTokoActivity::class.java)
             }
 
             btnCreateProduct.setOnClickListener {

@@ -49,5 +49,8 @@
     <string name="tambah_produk">Tambah Produk</string>
     <string name="daftar_produk">Daftar Produk</string>
     <string name="_1_produk">1 produk</string>
+    <string name="title">Title</string>
+    <string name="rp_0">Rp.0</string>
+    <string name="hapus">Hapus</string>
 </resources>
 

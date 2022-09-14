@@ -46,7 +46,7 @@ class CreateProductActivity : MyActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setToolbar(binding.lyToolbar.toolbar, "Tambah Alamat")
+        setToolbar(binding.lyToolbar.toolbar, "Tambah Produk")
 
         setupUI()
         mainButton()
@@ -100,14 +100,12 @@ class CreateProductActivity : MyActivity() {
 
     private fun create() {
         var images = ""
-        var index = 1
+
         listImages.forEach {
-            index++
-            if (it.isNotEmpty()) {
-                images += if (listImages.size < index + 1) it
-                else "$it|"
-            }
+            if (it.isNotEmpty()) images += "$it|"
         }
+
+        images = images.dropLast(1)
 
         val reqData = Product(
             tokoId = getTokoId(),
@@ -123,7 +121,7 @@ class CreateProductActivity : MyActivity() {
             when (it.state) {
                 State.SUCCESS -> {
                     progress.dismiss()
-                    toastSuccess("Berhasil menambah alamat")
+                    toastSuccess("Berhasil menambah produk")
                     onBackPressed()
                 }
                 State.ERROR -> {

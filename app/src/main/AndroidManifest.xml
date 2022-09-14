@@ -22,6 +22,11 @@
             android:exported="true"
             android:label="@string/title_activity_navigation">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -38,17 +43,8 @@
         <activity android:name=".ui.alamatToko.ListAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.TambahAlamatTokoActivity" />
         <activity android:name=".ui.alamatToko.EditAlamatTokoActivity" />
-        <activity
-            android:name=".ui.product.CreateProductActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".ui.product.CreateProductActivity" />
+        <activity android:name=".ui.product.ListProductTokoActivity" />
     </application>
 
 </manifest>
