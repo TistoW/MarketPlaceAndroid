@@ -97,7 +97,6 @@
             app:strokeWidth="0.5dp">
 
             <TextView
-                style="@style/layout_clickable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_5sdp"
@@ -121,7 +120,6 @@
             app:strokeWidth="0.5dp">
 
             <TextView
-                style="@style/layout_clickable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_5sdp"
@@ -129,7 +127,6 @@
                 android:padding="@dimen/_5sdp"
                 android:text="@string/hapus"
                 android:textSize="@dimen/_9sdp" />
-
 
         </com.google.android.material.card.MaterialCardView>
 

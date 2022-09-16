@@ -1,6 +1,10 @@
 package com.inyongtisto.marketplace.core.data.source.model
 
-data class Product(
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+class Product(
     val id: Int? = null,
     val name: String?,
     val price: Int?,
@@ -16,5 +20,5 @@ data class Product(
     val rating: Double? = null,
     val discount: Int? = null,
     val grosir: Boolean? = null,
-    val imageDummy: Int? = null,  // nanti dihapus
-)
+    val imageDummy: Int? = null  // nanti dihapus
+) : Parcelable

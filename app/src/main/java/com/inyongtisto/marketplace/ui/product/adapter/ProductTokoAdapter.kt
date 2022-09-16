@@ -21,8 +21,10 @@ import java.time.Instant
 import kotlin.math.log
 
 @SuppressLint("NotifyDataSetChanged")
-class ProductTokoAdapter(val onDelete: (item: Product, pos: Int) -> Unit) :
-    RecyclerView.Adapter<ProductTokoAdapter.ViewHolder>() {
+class ProductTokoAdapter(
+    val onClick: (item: Product) -> Unit,
+    val onDelete: (item: Product, pos: Int) -> Unit
+) : RecyclerView.Adapter<ProductTokoAdapter.ViewHolder>() {
 
     private var data = ArrayList<Product>()
 
@@ -45,6 +47,14 @@ class ProductTokoAdapter(val onDelete: (item: Product, pos: Int) -> Unit) :
 
                 imgProduct.setImagePicasso(imageProduct.toUrlProduct())
 
+                btnEdit.setOnClickListener {
+                    logs("cek this button")
+                    onClick.invoke(item)
+                }
+
+                lyMain.setOnClickListener {
+                    onClick.invoke(item)
+                }
             }
         }
     }

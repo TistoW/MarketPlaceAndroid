@@ -1,5 +1,6 @@
 package com.inyongtisto.marketplace.ui.product
 
+import android.content.Intent
 import android.os.Bundle
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.model.Product
@@ -16,9 +17,13 @@ class ListProductTokoActivity : MyActivity() {
 
     private lateinit var binding: ActivityListDataBinding
     private val viewModel: ProductViewModel by viewModel()
-    private var adapter = ProductTokoAdapter { item, pos ->
-        confirmDeleteProduct(item, pos)
-    }
+    private var adapter = ProductTokoAdapter(
+        onClick = {
+            intentActivity(UpdateProductActivity::class.java, it)
+        }, onDelete = { item, pos ->
+            confirmDeleteProduct(item, pos)
+        }
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
