@@ -14,6 +14,7 @@ import com.inyongtisto.marketplace.ui.auth.LoginActivity
 import com.inyongtisto.marketplace.ui.toko.TokoSayaActivity
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.intentActivity
+import com.inyongtisto.myhelper.extension.logs
 import com.inyongtisto.myhelper.extension.toastError
 import com.inyongtisto.myhelper.extension.toastSimple
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,10 +32,23 @@ class NavigationActivity : AppCompatActivity() {
 
         setupNav()
         getUser()
+        testingCode()
+    }
+
+    private fun testingCode() {
+        val x = 1
+        val y = 2 // bukan nullable
+        val z: Int? = null // nullable
+
+        // z!! // di paksa set value null berpotensi crash/Froce close
+        // z ?: 0 // diberi default value
+
+        val result = x + y + (z ?: 5)
+        logs("hasil:$result")
     }
 
     private fun getUser() {
-        viewModel.getUser(Prefs.getUser()?.id ?: 0).observe(this, {})
+        viewModel.getUser(Prefs.getUser()?.id ?: 0).observe(this) {}
     }
 
     private fun setupNav() {

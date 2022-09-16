@@ -1,11 +1,8 @@
 package com.inyongtisto.marketplace.ui.product
 
-import android.content.Intent
 import android.os.Bundle
-import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
-import com.inyongtisto.marketplace.databinding.ActivityAlamatTokoListBinding
 import com.inyongtisto.marketplace.databinding.ActivityListDataBinding
 import com.inyongtisto.marketplace.ui.base.MyActivity
 import com.inyongtisto.marketplace.ui.product.adapter.ProductTokoAdapter

@@ -48,12 +48,15 @@ class ProductTokoAdapter(
                 imgProduct.setImagePicasso(imageProduct.toUrlProduct())
 
                 btnEdit.setOnClickListener {
-                    logs("cek this button")
                     onClick.invoke(item)
                 }
 
                 lyMain.setOnClickListener {
                     onClick.invoke(item)
+                }
+
+                btnDelete.setOnClickListener {
+                    onDelete.invoke(item, adapterPosition)
                 }
             }
         }
