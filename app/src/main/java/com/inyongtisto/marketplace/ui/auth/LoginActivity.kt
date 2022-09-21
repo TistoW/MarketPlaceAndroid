@@ -6,10 +6,11 @@ import com.inyongtisto.marketplace.ui.navigation.NavigationActivity
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
 import com.inyongtisto.marketplace.databinding.ActivityLoginBinding
+import com.inyongtisto.marketplace.ui.base.MyActivity
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : MyActivity() {
 
     private val viewModel: AuthViewModel by viewModel()
 
@@ -49,23 +50,23 @@ class LoginActivity : AppCompatActivity() {
             binding.edtPassword.text.toString()
         )
 
-        viewModel.login(body).observe(this, {
+        viewModel.login(body).observe(this) {
 
             when (it.state) {
                 State.SUCCESS -> {
-                    dismisLoading()
+                    progress.dismiss()
                     showToast("Selamat datang " + it.data?.name)
                     pushActivity(NavigationActivity::class.java)
                 }
                 State.ERROR -> {
-                    dismisLoading()
+                    progress.dismiss()
                     toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {
-                    showLoading()
+                    progress.show()
                 }
             }
-        })
+        }
     }
 
 }

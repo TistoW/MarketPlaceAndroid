@@ -12,6 +12,7 @@ object Prefs : KotprefModel() {
 
     var isLogin by booleanPref(false)
     var user by stringPref()
+    var token by stringPref("token")
 
     fun setUser(data: User?) {
         user = data.toJson()

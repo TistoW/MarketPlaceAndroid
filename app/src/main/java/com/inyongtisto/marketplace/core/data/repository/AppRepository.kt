@@ -27,6 +27,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     val body = it.body()
                     val user = body?.data
                     Prefs.setUser(user)
+                    Prefs.token = user?.token ?: "tokenError"
                     emit(Resource.success(user))
                     logs("succes:" + body.toString())
                 } else {
