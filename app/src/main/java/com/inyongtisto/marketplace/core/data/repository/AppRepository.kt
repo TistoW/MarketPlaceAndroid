@@ -12,6 +12,7 @@ import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.marketplace.util.defaultError
 import com.inyongtisto.myhelper.extension.getErrorBody
 import com.inyongtisto.myhelper.extension.logs
+import com.inyongtisto.myhelper.extension.toJson
 import kotlinx.coroutines.flow.flow
 import okhttp3.MultipartBody
 import java.lang.Exception
@@ -26,6 +27,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     Prefs.isLogin = true
                     val body = it.body()
                     val user = body?.data
+                    logs("user:"+user.toJson())
                     Prefs.setUser(user)
                     Prefs.token = user?.token ?: "tokenError"
                     emit(Resource.success(user))

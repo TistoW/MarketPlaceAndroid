@@ -13,10 +13,7 @@ import com.inyongtisto.marketplace.ui.toko.TokoSayaActivity
 import com.inyongtisto.marketplace.ui.updateProfile.UpdateProfileActivity
 import com.inyongtisto.marketplace.util.Constants.USER_URL
 import com.inyongtisto.marketplace.util.Prefs
-import com.inyongtisto.myhelper.extension.getInitial
-import com.inyongtisto.myhelper.extension.intentActivity
-import com.inyongtisto.myhelper.extension.pushActivity
-import com.inyongtisto.myhelper.extension.toGone
+import com.inyongtisto.myhelper.extension.*
 import com.squareup.picasso.Picasso
 
 class AkunFragment : Fragment() {
@@ -84,6 +81,9 @@ class AkunFragment : Fragment() {
                         intentActivity(BukaTokoActivity::class.java)
                     }
                 }
+                logs("user:" + Prefs.getUser())
+                btnAdmin.visible(Prefs.getUser()?.isAdmin() ?: false)
+
             }
         }
     }
