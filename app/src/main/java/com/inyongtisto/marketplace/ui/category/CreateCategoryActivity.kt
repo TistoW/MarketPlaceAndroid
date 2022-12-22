@@ -12,6 +12,7 @@ import com.inyongtisto.marketplace.databinding.ActivityCreateCategoryBinding
 import com.inyongtisto.marketplace.ui.base.MyActivity
 import com.inyongtisto.marketplace.util.Constants
 import com.inyongtisto.marketplace.util.defaultError
+import com.inyongtisto.marketplace.util.toUrlCategory
 import com.inyongtisto.myhelper.extension.*
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,26 +24,41 @@ class CreateCategoryActivity : MyActivity() {
     private val viewModel: CategoryViewModel by viewModel()
     private val viewModelBase: BaseViewModel by viewModel()
     private var fileImage: File? = null
+    private val category by extra<Category>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setToolbar(binding.lyToolbar.toolbar, "Tambah Kategori")
+        val title = if (category == null) "Tambah Kategori" else "Detail Kategori"
+        setToolbar(binding.lyToolbar.toolbar, title)
 
         setupUI()
         mainButton()
     }
 
     private fun setupUI() {
-
+        category?.let {
+            binding.apply {
+                edtName.setText(it.name)
+                btnAddFoto.setImagePicasso(it.image.toUrlCategory())
+            }
+        }
     }
 
     private fun mainButton() {
         binding.apply {
             lyToolbar.btnSimpan.toVisible()
             lyToolbar.btnSimpan.setOnClickListener {
-                if (validate()) upload()
+                if (category == null) { // create category
+                    if (validate()) upload()
+                } else { // update category
+                    if (fileImage != null) {
+                        upload()
+                    } else {
+                        update()
+                    }
+                }
             }
             btnAddFoto.setOnClickListener {
                 picImage()
@@ -85,6 +101,31 @@ class CreateCategoryActivity : MyActivity() {
         }
     }
 
+    private fun update(imageName: String? = null) {
+        val reqData = CategoryRequest(
+            name = binding.edtName.getString(),
+            image = imageName,
+            id = category?.id
+        )
+
+        viewModel.update(reqData).observe(this) {
+            when (it.state) {
+                State.SUCCESS -> {
+                    progress.dismiss()
+                    toastSuccess("Berhasil mengubah kategori")
+                    onBackPressed()
+                }
+                State.ERROR -> {
+                    progress.dismiss()
+                    showErrorDialog(it.message.defaultError())
+                }
+                State.LOADING -> {
+                    progress.show()
+                }
+            }
+        }
+    }
+
     private fun picImage() {
         ImagePicker.with(this)
             .crop()
@@ -112,7 +153,11 @@ class CreateCategoryActivity : MyActivity() {
                 State.SUCCESS -> {
                     progress.dismiss()
                     val imageName = it.data
-                    create(imageName)
+                    if (category == null) {
+                        create(imageName)
+                    } else {
+                        update(imageName)
+                    }
                 }
                 State.ERROR -> {
                     toastError(it.message ?: "Error")

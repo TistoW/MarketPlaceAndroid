@@ -19,7 +19,7 @@ class ListCategoryAdminActivity : MyActivity() {
     private val viewModel: CategoryViewModel by viewModel()
     private var adapter = CategoryAdminAdapter(
         onClick = {
-            intentActivity(UpdateProductActivity::class.java, it)
+            intentActivity(CreateCategoryActivity::class.java, it)
         }, onDelete = { item, pos ->
             confirmDelete(item, pos)
         }
