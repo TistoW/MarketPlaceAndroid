@@ -3,10 +3,7 @@ package com.inyongtisto.marketplace.core.data.source.remote.network
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.model.Category
 import com.inyongtisto.marketplace.core.data.source.model.Product
-import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.inyongtisto.marketplace.core.data.source.remote.request.*
 import com.inyongtisto.marketplace.core.data.source.remote.response.*
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -106,17 +103,24 @@ interface ApiService {
 
     @POST("category")
     suspend fun createCategory(
-        @Body data: Category
+        @Body data: CategoryRequest
     ): Response<BaseSingelResponse<Category>>
 
     @PUT("category/{id}")
     suspend fun updateCategory(
         @Path("id") id: Int? = null,
-        @Body data: Category
+        @Body data: CategoryRequest
     ): Response<BaseSingelResponse<Category>>
 
     @DELETE("category/{id}")
     suspend fun deleteCategory(
         @Path("id") id: Int? = null
     ): Response<BaseSingelResponse<Category>>
+
+    @Multipart
+    @POST("upload/{path}")
+    suspend fun uploadImage(
+        @Path("path") id: String? = null,
+        @Part data: MultipartBody.Part? = null
+    ): Response<BaseSingelResponse<String>>
 }

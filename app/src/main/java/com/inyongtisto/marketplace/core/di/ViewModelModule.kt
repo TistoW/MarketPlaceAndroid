@@ -1,5 +1,6 @@
 package com.inyongtisto.marketplace.core.di
 
+import com.inyongtisto.marketplace.core.data.repository.BaseViewModel
 import com.inyongtisto.marketplace.ui.alamatToko.AlamatTokoViewModel
 import com.inyongtisto.marketplace.ui.auth.AuthViewModel
 import com.inyongtisto.marketplace.ui.category.CategoryViewModel
@@ -16,4 +17,5 @@ val viewModelModule = module {
     viewModel { AlamatTokoViewModel(get()) }
     viewModel { ProductViewModel(get()) }
     viewModel { CategoryViewModel(get()) }
+    viewModel { BaseViewModel(get()) }
 }

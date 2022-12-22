@@ -27,7 +27,7 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
                     Prefs.isLogin = true
                     val body = it.body()
                     val user = body?.data
-                    logs("user:"+user.toJson())
+                    logs("user:" + user.toJson())
                     Prefs.setUser(user)
                     Prefs.token = user?.token ?: "tokenError"
                     emit(Resource.success(user))
@@ -132,6 +132,23 @@ class AppRepository(val local: LocalDataSource, val remote: RemoteDataSource) {
             }
         } catch (e: Exception) {
             emit(Resource.error(e.message ?: "Terjadi Kesalahan", null))
+        }
+    }
+
+    fun uploadImage(path: String, fileImage: MultipartBody.Part? = null) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.uploadImage(path, fileImage).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val fileName = body?.data
+                    emit(Resource.success(fileName))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message.defaultError(), null))
         }
     }
 }

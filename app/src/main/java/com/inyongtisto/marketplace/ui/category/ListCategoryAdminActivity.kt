@@ -75,7 +75,7 @@ class ListCategoryAdminActivity : MyActivity() {
         binding.apply {
             lyToolbar.btnTambah.toVisible()
             lyToolbar.btnTambah.setOnClickListener {
-//                intentActivity(TambahAlamatTokoActivity::class.java)
+                intentActivity(CreateCategoryActivity::class.java)
             }
         }
     }

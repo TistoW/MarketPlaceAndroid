@@ -4,10 +4,7 @@ import com.inyongtisto.marketplace.core.data.source.local.LocalDataSource
 import com.inyongtisto.marketplace.core.data.source.model.Category
 import com.inyongtisto.marketplace.core.data.source.remote.RemoteDataSource
 import com.inyongtisto.marketplace.core.data.source.remote.network.Resource
-import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.RegisterRequest
-import com.inyongtisto.marketplace.core.data.source.remote.request.UpdateProfileRequest
+import com.inyongtisto.marketplace.core.data.source.remote.request.*
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.marketplace.util.defaultError
 import com.inyongtisto.myhelper.extension.getErrorBody
@@ -36,7 +33,7 @@ class CategoryRepository(val local: LocalDataSource, val remote: RemoteDataSourc
         }
     }
 
-    fun createCategory(data: Category) = flow {
+    fun createCategory(data: CategoryRequest) = flow {
         emit(Resource.loading(null))
         try {
             remote.createCategory(data).let {
@@ -52,7 +49,7 @@ class CategoryRepository(val local: LocalDataSource, val remote: RemoteDataSourc
         }
     }
 
-    fun updateCategory(data: Category) = flow {
+    fun updateCategory(data: CategoryRequest) = flow {
         emit(Resource.loading(null))
         try {
             remote.updateCategory(data).let {
