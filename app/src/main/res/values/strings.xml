@@ -52,5 +52,7 @@
     <string name="title">Title</string>
     <string name="rp_0">Rp.0</string>
     <string name="hapus">Hapus</string>
+    <string name="category">Category</string>
+    <string name="pengaturan_produk">Pengaturan produk</string>
 </resources>
 

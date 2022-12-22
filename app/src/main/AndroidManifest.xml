@@ -45,6 +45,8 @@
         <activity android:name=".ui.product.CreateProductActivity" />
         <activity android:name=".ui.product.ListProductTokoActivity" />
         <activity android:name=".ui.product.UpdateProductActivity" />
+        <activity android:name="com.inyongtisto.marketplace.ui.category.ListCategoryAdminActivity" />
+        <activity android:name="com.inyongtisto.marketplace.ui.adminPanel.AdminPanelActivity" />
     </application>
 
 </manifest>

@@ -7,3 +7,7 @@ fun String?.defaultError(): String {
 fun String.toUrlProduct(): String {
     return Constants.BASE_URL + "storage/product/" + this
 }
+
+fun String?.toUrlCategory(): String {
+    return Constants.BASE_URL + "storage/category/" + this
+}

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.inyongtisto.marketplace.ui.navigation.NavigationActivity
 import com.inyongtisto.marketplace.databinding.FragmentAkunBinding
+import com.inyongtisto.marketplace.ui.adminPanel.AdminPanelActivity
 import com.inyongtisto.marketplace.ui.toko.BukaTokoActivity
 import com.inyongtisto.marketplace.ui.toko.TokoSayaActivity
 import com.inyongtisto.marketplace.ui.updateProfile.UpdateProfileActivity
@@ -56,7 +57,9 @@ class AkunFragment : Fragment() {
             intentActivity(UpdateProfileActivity::class.java)
         }
 
-
+        binding.btnAdmin.setOnClickListener {
+            intentActivity(AdminPanelActivity::class.java)
+        }
     }
 
     private fun setUser() {

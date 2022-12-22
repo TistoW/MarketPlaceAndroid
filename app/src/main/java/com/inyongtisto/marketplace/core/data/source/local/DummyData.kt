@@ -7,16 +7,16 @@ import com.inyongtisto.marketplace.core.data.source.model.Slider
 
 object DummyData {
     val listCategory = listOf(
-        Category(id = "1", name = "Elektronik", image = R.drawable.asset_elektronik),
-        Category(id = "2", name = "Handphone", image = R.drawable.asset_handphone),
-        Category(id = "3", name = "Keuangan", image = R.drawable.asset_keuangan),
-        Category(id = "4", name = "Komputer", image = R.drawable.asset_komputer),
-        Category(id = "5", name = "Perawatan Hewan", image = R.drawable.asset_perawatan_hewan),
-        Category(id = "6", name = "Topup", image = R.drawable.asset_topup),
-        Category(id = "7", name = "Rumah Tangga", image = R.drawable.asset_rumah_tangga),
-        Category(id = "8", name = "Travel", image = R.drawable.asset_travel),
-        Category(id = "9", name = "Komputer", image = R.drawable.asset_komputer),
-        Category(id = "10", name = "Semua", image = R.drawable.asset_semua),
+        Category(id = 1, name = "Elektronik", imageDummy = R.drawable.asset_elektronik),
+        Category(id = 2, name = "Handphone", imageDummy = R.drawable.asset_handphone),
+        Category(id = 3, name = "Keuangan", imageDummy = R.drawable.asset_keuangan),
+        Category(id = 4, name = "Komputer", imageDummy = R.drawable.asset_komputer),
+        Category(id = 5, name = "Perawatan Hewan", imageDummy = R.drawable.asset_perawatan_hewan),
+        Category(id = 6, name = "Topup", imageDummy = R.drawable.asset_topup),
+        Category(id = 7, name = "Rumah Tangga", imageDummy = R.drawable.asset_rumah_tangga),
+        Category(id = 8, name = "Travel", imageDummy = R.drawable.asset_travel),
+        Category(id = 9, name = "Komputer", imageDummy = R.drawable.asset_komputer),
+        Category(id = 10, name = "Semua", imageDummy = R.drawable.asset_semua),
     )
 
     val listSlider = listOf(

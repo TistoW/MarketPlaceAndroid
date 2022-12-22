@@ -1,6 +1,7 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
+import com.inyongtisto.marketplace.core.data.source.model.Category
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.request.CreateTokoRequest
 import com.inyongtisto.marketplace.core.data.source.remote.request.LoginRequest
@@ -99,4 +100,23 @@ interface ApiService {
     suspend fun uploadProduct(
         @Part data: MultipartBody.Part? = null
     ): Response<BaseSingelResponse<String>>
+
+    @GET("category")
+    suspend fun getCategory(): Response<BaseListResponse<Category>>
+
+    @POST("category")
+    suspend fun createCategory(
+        @Body data: Category
+    ): Response<BaseSingelResponse<Category>>
+
+    @PUT("category/{id}")
+    suspend fun updateCategory(
+        @Path("id") id: Int? = null,
+        @Body data: Category
+    ): Response<BaseSingelResponse<Category>>
+
+    @DELETE("category/{id}")
+    suspend fun deleteCategory(
+        @Path("id") id: Int? = null
+    ): Response<BaseSingelResponse<Category>>
 }
