@@ -7,10 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.databinding.ItemHomeProdukTerlarisBinding
-import com.inyongtisto.myhelper.extension.coret
-import com.inyongtisto.myhelper.extension.toGone
-import com.inyongtisto.myhelper.extension.toRupiah
-import com.inyongtisto.myhelper.extension.toVisible
+import com.inyongtisto.marketplace.util.toUrlProduct
+import com.inyongtisto.myhelper.extension.*
 
 @SuppressLint("NotifyDataSetChanged")
 class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewHolder>() {
@@ -24,16 +22,16 @@ class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewH
             itemBinding.apply {
                 val harga = item.price ?: 0
                 tvName.text = item.name
-                imageView.setImageResource(item.imageDummy ?: R.drawable.asset_produk1)
+                imageView.setImagePicasso(item.firstImage().toUrlProduct())
                 tvHarga.text = item.price.toRupiah()
-                tvPengiriman.text = item.pengirirman
-                tvReting.text = "" + item.rating + " | Terjual" + item.terjual
+                tvPengiriman.text = item.pengirirman ?: "Jakarta Pusat"
+                tvReting.text = "" + (item.rating.def(5.0)) + " | Terjual " + item.sold
 
                 if (item.discount != 0) {
                     lyGrosir.toGone()
-                    lyDiskon.toVisible()
+                    val discount = item.discount.toDouble()
+                    lyDiskon.visible(discount > 0)
                     tvDiscount.text = "${item.discount}%"
-                    val discount = item.discount?.toDouble() ?: 0.0
                     tvHarga.text = (harga - ((discount / 100) * harga)).toRupiah()
                     tvHargaAsli.text = item.price.toRupiah()
                     tvHargaAsli.coret()

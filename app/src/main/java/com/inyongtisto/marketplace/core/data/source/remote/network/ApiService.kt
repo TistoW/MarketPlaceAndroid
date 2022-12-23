@@ -2,6 +2,7 @@ package com.inyongtisto.marketplace.core.data.source.remote.network
 
 import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
 import com.inyongtisto.marketplace.core.data.source.model.Category
+import com.inyongtisto.marketplace.core.data.source.model.Home
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.request.*
 import com.inyongtisto.marketplace.core.data.source.remote.response.*
@@ -10,6 +11,9 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
+
+    @GET("home")
+    suspend fun getHome(): Response<BaseSingelResponse<Home>>
 
     @POST("login")
     suspend fun login(

@@ -18,9 +18,19 @@ class Product(
     val category: Category? = null,
 
     val pengirirman: String? = null,
-    val terjual: Int? = null,
+    val sold: Int? = null,
     val rating: Double? = null,
-    val discount: Int? = null,
+    val discount: Int = 0,
     val grosir: Boolean? = null,
     val imageDummy: Int? = null,  // nanti dihapus
-) : Parcelable
+) : Parcelable {
+    fun firstImage(): String {
+        val splitImages = images?.split("|")
+        val imageProduct = if (splitImages.isNullOrEmpty()) {
+            images ?: ""
+        } else {
+            splitImages[0]
+        }
+        return imageProduct
+    }
+}
