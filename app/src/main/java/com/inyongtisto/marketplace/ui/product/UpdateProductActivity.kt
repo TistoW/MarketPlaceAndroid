@@ -4,10 +4,12 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import com.github.drjacky.imagepicker.ImagePicker
+import com.inyongtisto.marketplace.core.data.source.model.Category
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.databinding.ActivityCreateProductBinding
 import com.inyongtisto.marketplace.ui.base.MyActivity
+import com.inyongtisto.marketplace.ui.category.SelectCategoryActivity
 import com.inyongtisto.marketplace.ui.product.adapter.AddImageAdapter
 import com.inyongtisto.marketplace.util.defaultError
 import com.inyongtisto.marketplace.util.getTokoId
@@ -21,6 +23,7 @@ class UpdateProductActivity : MyActivity() {
     private lateinit var binding: ActivityCreateProductBinding
     private val viewModel: ProductViewModel by viewModel()
     private val product by extra<Product>()
+    private var selectedCategory: Category? = null
 
     private val adapterImage = AddImageAdapter(
         onAddImage = {
@@ -70,6 +73,7 @@ class UpdateProductActivity : MyActivity() {
                 edtStok.setText(it.stock.toString())
                 edtDeskripsi.setText(it.description)
                 edtBerat.setText(it.wight.toString())
+                edtKategori.setText(it.category?.name)
             }
         }
     }
@@ -110,8 +114,21 @@ class UpdateProductActivity : MyActivity() {
                 edtDeskripsi.setText("Deskripsi " + edtName.getString())
                 return@setOnLongClickListener true
             }
+
+            edtKategori.setOnClickListener {
+                intentActivityResult(SelectCategoryActivity::class.java, launcherCategory)
+            }
         }
     }
+
+    private val launcherCategory =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val str: String? = it.data?.getStringExtra("extra")
+                selectedCategory = str.toModel(Category::class.java)
+                binding.edtKategori.setText(selectedCategory?.name)
+            }
+        }
 
     private fun validate(): Boolean {
         binding.apply {
@@ -141,7 +158,8 @@ class UpdateProductActivity : MyActivity() {
             description = binding.edtDeskripsi.getString(),
             wight = binding.edtBerat.getString().toInt(),
             stock = binding.edtStok.getString().toInt(),
-            images = images
+            images = images,
+            categoryId = selectedCategory?.id
         )
 
         viewModel.update(reqData).observe(this) {

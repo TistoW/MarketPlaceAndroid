@@ -19,7 +19,6 @@ class ProductRepository(val local: LocalDataSource, val remote: RemoteDataSource
                 if (it.isSuccessful) {
                     val body = it.body()
                     val data = body?.data
-
                     emit(Resource.success(data))
                 } else {
                     emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
