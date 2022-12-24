@@ -12,6 +12,7 @@ import com.inyongtisto.marketplace.ui.alamatToko.ListAlamatTokoActivity
 import com.inyongtisto.marketplace.ui.category.ListCategoryAdminActivity
 import com.inyongtisto.marketplace.ui.product.CreateProductActivity
 import com.inyongtisto.marketplace.ui.product.ListProductTokoActivity
+import com.inyongtisto.marketplace.ui.slider.ListSliderAdminActivity
 import com.inyongtisto.marketplace.util.Constants
 import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.getInitial
@@ -43,6 +44,10 @@ class AdminPanelActivity : AppCompatActivity() {
         binding.apply {
             btnCategory.setOnClickListener {
                 intentActivity(ListCategoryAdminActivity::class.java)
+            }
+
+            btnSlider.setOnClickListener {
+                intentActivity(ListSliderAdminActivity::class.java)
             }
         }
     }

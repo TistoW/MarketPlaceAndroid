@@ -2,7 +2,6 @@ package com.inyongtisto.marketplace.core.data.source.local
 
 import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.model.Category
-import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.core.data.source.model.Slider
 
 object DummyData {
@@ -20,9 +19,9 @@ object DummyData {
     )
 
     val listSlider = listOf(
-        Slider(id = "1", name = "Slider1", image = R.drawable.asset_slider1),
-        Slider(id = "2", name = "Slider2", image = R.drawable.asset_slider2),
-        Slider(id = "3", name = "Slider3", image = R.drawable.asset_slider3),
+        Slider(id = 1, name = "Slider1", imageDummy = R.drawable.asset_slider10),
+        Slider(id = 2, name = "Slider2", imageDummy = R.drawable.asset_slider11),
+        Slider(id = 3, name = "Slider3", imageDummy = R.drawable.asset_slider12),
     )
 
 //    val listProduct = listOf(

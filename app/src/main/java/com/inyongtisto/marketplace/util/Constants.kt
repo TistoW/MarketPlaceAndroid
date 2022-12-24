@@ -7,6 +7,7 @@ object Constants {
     const val DEFALUT_ERROR = "Terjadi kesalahan"
 
     const val pathCategory = "category"
+    const val pathSlider = "slider"
 
 
 }

@@ -13,18 +13,5 @@ import com.inyongtisto.marketplace.core.data.source.model.Slider
 import java.util.*
 
 class HomeViewModel(private val repo: AppRepository) : ViewModel() {
-
-    val listCategory: LiveData<List<Category>> = MutableLiveData<List<Category>>().apply {
-        value = DummyData.listCategory
-    }
-
-    val listSlider: LiveData<List<Slider>> = MutableLiveData<List<Slider>>().apply {
-        value = DummyData.listSlider
-    }
-
-    val listProduct: LiveData<List<Product>> = MutableLiveData<List<Product>>().apply {
-
-    }
-
     fun getHome() = repo.getHome().asLiveData()
 }

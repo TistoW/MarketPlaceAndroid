@@ -39,6 +39,12 @@ class RemoteDataSource(private val api: ApiService) {
     suspend fun updateCategory(data: CategoryRequest) = api.updateCategory(data.id, data)
     suspend fun deleteCategory(id: Int?) = api.deleteCategory(id)
 
+    /*********** Slider *************/
+    suspend fun getSlider() = api.getSlider()
+    suspend fun createSlider(data: SliderRequest) = api.createSlider(data)
+    suspend fun updateSlider(data: SliderRequest) = api.updateSlider(data.id, data)
+    suspend fun deleteSlider(id: Int?) = api.deleteSlider(id)
+
     suspend fun uploadImage(path: String, fileImage: MultipartBody.Part? = null) =
         api.uploadImage(path, fileImage)
 

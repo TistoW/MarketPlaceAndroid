@@ -22,42 +22,23 @@
             <include layout="@layout/layout_home_member" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:paddingHorizontal="@dimen/_5sdp"
                 android:id="@+id/rv_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_5sdp"
                 android:visibility="visible"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="5"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_home_category" />
 
-
-            <HorizontalScrollView
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/slider"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:scrollbars="none"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_slider"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_home_slider" />
-
-                </RelativeLayout>
-
-            </HorizontalScrollView>
+                android:layout_height="@dimen/_115sdp"
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import com.inyongtisto.marketplace.ui.category.CategoryViewModel
 import com.inyongtisto.marketplace.ui.home.HomeViewModel
 import com.inyongtisto.marketplace.ui.navigation.NavViewModel
 import com.inyongtisto.marketplace.ui.product.ProductViewModel
+import com.inyongtisto.marketplace.ui.slider.SliderViewModel
 import com.inyongtisto.marketplace.ui.toko.TokoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -20,4 +21,5 @@ val viewModelModule = module {
     viewModel { CategoryViewModel(get()) }
     viewModel { BaseViewModel(get()) }
     viewModel { HomeViewModel(get()) }
+    viewModel { SliderViewModel(get()) }
 }

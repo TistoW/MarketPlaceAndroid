@@ -1,9 +1,6 @@
 package com.inyongtisto.marketplace.core.data.source.remote.network
 
-import com.inyongtisto.marketplace.core.data.source.model.AlamatToko
-import com.inyongtisto.marketplace.core.data.source.model.Category
-import com.inyongtisto.marketplace.core.data.source.model.Home
-import com.inyongtisto.marketplace.core.data.source.model.Product
+import com.inyongtisto.marketplace.core.data.source.model.*
 import com.inyongtisto.marketplace.core.data.source.remote.request.*
 import com.inyongtisto.marketplace.core.data.source.remote.response.*
 import okhttp3.MultipartBody
@@ -102,6 +99,8 @@ interface ApiService {
         @Part data: MultipartBody.Part? = null
     ): Response<BaseSingelResponse<String>>
 
+
+    /*************** Category ******************/
     @GET("category")
     suspend fun getCategory(): Response<BaseListResponse<Category>>
 
@@ -120,6 +119,26 @@ interface ApiService {
     suspend fun deleteCategory(
         @Path("id") id: Int? = null
     ): Response<BaseSingelResponse<Category>>
+
+    /*************** Category ******************/
+    @GET("slider")
+    suspend fun getSlider(): Response<BaseListResponse<Slider>>
+
+    @POST("slider")
+    suspend fun createSlider(
+        @Body data: SliderRequest
+    ): Response<BaseSingelResponse<Slider>>
+
+    @PUT("slider/{id}")
+    suspend fun updateSlider(
+        @Path("id") id: Int? = null,
+        @Body data: SliderRequest
+    ): Response<BaseSingelResponse<Slider>>
+
+    @DELETE("slider/{id}")
+    suspend fun deleteSlider(
+        @Path("id") id: Int? = null
+    ): Response<BaseSingelResponse<Slider>>
 
     @Multipart
     @POST("upload/{path}")

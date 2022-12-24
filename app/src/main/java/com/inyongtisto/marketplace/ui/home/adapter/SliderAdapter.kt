@@ -1,25 +1,21 @@
 package com.inyongtisto.marketplace.ui.home.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.inyongtisto.marketplace.core.data.source.model.Category
+import androidx.viewpager.widget.PagerAdapter
 import com.inyongtisto.marketplace.core.data.source.model.Slider
-import com.inyongtisto.marketplace.databinding.ItemHomeCategoryBinding
 import com.inyongtisto.marketplace.databinding.ItemHomeSliderBinding
+import com.inyongtisto.marketplace.util.toUrlSlider
+import com.inyongtisto.myhelper.extension.setImagePicasso
 
-@SuppressLint("NotifyDataSetChanged")
-class SliderAdapter : RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
+class SliderAdapter : PagerAdapter() {
+    private val data: ArrayList<Slider> = ArrayList()
 
-    private var data = ArrayList<Slider>()
+    override fun getCount() = data.size
 
-    inner class ViewHolder(private val itemBinding: ItemHomeSliderBinding) : RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(item: Slider, position: Int) {
-            itemBinding.apply {
-                imageView.setImageResource(item.image)
-            }
-        }
+    override fun isViewFromObject(view: View, obj: Any): Boolean {
+        return view == obj
     }
 
     fun addItems(items: List<Slider>) {
@@ -27,20 +23,20 @@ class SliderAdapter : RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemHomeSliderBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false)
-        )
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val binding =
+            ItemHomeSliderBinding.inflate(LayoutInflater.from(container.context), container, false)
+        val item = data[position]
+
+        binding.apply {
+            imageView.setImagePicasso(item.image.toUrlSlider())
+        }
+
+        container.addView(binding.root)
+        return binding.root
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data[position], position)
+    override fun destroyItem(container: ViewGroup, position: Int, obj: Any) {
+        container.removeView(obj as View)
     }
-
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
 }

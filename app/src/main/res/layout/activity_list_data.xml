@@ -30,8 +30,9 @@
             <TextView
                 android:id="@+id/tv_error"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_centerInParent="true"
+                android:gravity="center"
                 android:text="@string/tidak_ada_data"
                 android:visibility="gone" />
 

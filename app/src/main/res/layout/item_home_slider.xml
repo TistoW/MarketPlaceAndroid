@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/_10sdp"
-    app:cardCornerRadius="@dimen/_8sdp"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_135sdp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/asset_slider1" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/_3sdp"
+        app:cardElevation="@dimen/_2sdp">
 
-</com.google.android.material.card.MaterialCardView>
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_109sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/asset_slider10" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

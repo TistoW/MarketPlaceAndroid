@@ -51,6 +51,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/btn_slider"
+            style="@style/layout_clickable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_6sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_placeholder"
+                app:tint="@color/gray3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="@string/slider"
+                android:textAppearance="@style/TypographyStyles.Text2"
+                android:textColor="@color/gray2" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
