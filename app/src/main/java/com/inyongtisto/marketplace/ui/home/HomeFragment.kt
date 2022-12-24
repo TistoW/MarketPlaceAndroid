@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
+import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.databinding.FragmentHomeBinding
 import com.inyongtisto.marketplace.ui.home.adapter.*
-import com.inyongtisto.myhelper.extension.logs
-import com.inyongtisto.myhelper.extension.toJson
+import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -41,6 +42,15 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    fun mainButton() {
+        binding.apply {
+            swipeRefresh.setDefaultColor()
+            swipeRefresh.setOnRefreshListener {
+                getHome()
+            }
+        }
+    }
+
     private fun setupAdapter() {
         binding.rvCategory.adapter = adapterCategory
         binding.rvProductTerlaris.adapter = adapterProductTerlaris
@@ -62,6 +72,14 @@ class HomeFragment : Fragment() {
         viewModel.getHome().observe(requireActivity()) {
             when (it.state) {
                 State.SUCCESS -> {
+                    binding.apply {
+                        pdCategory.toGone()
+                        pdSlider.toGone()
+                        pdProductTerbaru.toGone()
+                        pdProductTerlaris.toGone()
+                        swipeRefresh.isRefreshing = false
+                    }
+
                     val categories = it.data?.categories ?: listOf()
                     val products = it.data?.products ?: listOf()
                     val sliders = it.data?.sliders ?: listOf()
@@ -74,14 +92,12 @@ class HomeFragment : Fragment() {
                 State.ERROR -> {
                 }
                 State.LOADING -> {
+
                 }
             }
         }
     }
 
-    fun mainButton() {
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

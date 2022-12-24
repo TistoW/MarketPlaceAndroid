@@ -90,6 +90,7 @@ class ListSliderAdminActivity : MyActivity() {
         viewModel.get().observe(this) {
             when (it.state) {
                 State.SUCCESS -> {
+                    binding.swipeRefresh.dismissLoading()
                     binding.tvError.toGone()
                     val data = it.data ?: emptyList()
                     adapter.addItems(data)
@@ -109,7 +110,12 @@ class ListSliderAdminActivity : MyActivity() {
     }
 
     private fun mainButton() {
-
+        binding.apply {
+            swipeRefresh.setDefaultColor()
+            swipeRefresh.setOnRefreshListener {
+                getData()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
