@@ -51,6 +51,7 @@
         <activity android:name="com.inyongtisto.marketplace.ui.category.SelectCategoryActivity" />
         <activity android:name="com.inyongtisto.marketplace.ui.slider.ListSliderAdminActivity" />
         <activity android:name="com.inyongtisto.marketplace.ui.slider.CreateSliderActivity" />
+        <activity android:name="com.inyongtisto.marketplace.ui.product.DetailProductActivity" />
     </application>
 
 </manifest>

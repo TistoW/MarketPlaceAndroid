@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace.ui.home
+package com.inyongtisto.marketplace.ui.navigation.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

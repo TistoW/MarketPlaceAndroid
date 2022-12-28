@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace.ui.home.adapter
+package com.inyongtisto.marketplace.ui.navigation.home.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.model.Product
 import com.inyongtisto.marketplace.databinding.ItemHomeProdukTerlarisBinding
+import com.inyongtisto.marketplace.ui.product.DetailProductActivity
 import com.inyongtisto.marketplace.util.toUrlProduct
 import com.inyongtisto.myhelper.extension.*
 
@@ -35,6 +36,10 @@ class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewH
                     tvHarga.text = (harga - ((discount / 100) * harga)).toRupiah()
                     tvHargaAsli.text = item.price.toRupiah()
                     tvHargaAsli.coret()
+                }
+
+                lyMain.setOnClickListener {
+                    root.context.intentActivity(DetailProductActivity::class.java)
                 }
             }
         }

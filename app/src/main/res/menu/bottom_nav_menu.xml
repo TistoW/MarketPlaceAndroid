@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_asset_clipboard"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_transaction" />
 
     <item
         android:id="@+id/navigation_keranjang"

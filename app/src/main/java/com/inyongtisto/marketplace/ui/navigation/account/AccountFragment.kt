@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace.ui.akun
+package com.inyongtisto.marketplace.ui.navigation.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,9 +17,9 @@ import com.inyongtisto.marketplace.util.Prefs
 import com.inyongtisto.myhelper.extension.*
 import com.squareup.picasso.Picasso
 
-class AkunFragment : Fragment() {
+class AccountFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: AkunViewModel
+    private lateinit var notificationsViewModel: AccountViewModel
     private var _binding: FragmentAkunBinding? = null
 
     // This property is only valid between onCreateView and
@@ -32,7 +32,7 @@ class AkunFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         notificationsViewModel =
-            ViewModelProvider(this).get(AkunViewModel::class.java)
+            ViewModelProvider(this).get(AccountViewModel::class.java)
 
         _binding = FragmentAkunBinding.inflate(inflater, container, false)
         val root: View = binding.root

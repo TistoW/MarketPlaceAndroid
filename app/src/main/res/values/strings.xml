@@ -3,7 +3,7 @@
     <string name="hello">Hello World!</string>
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_transaction">Transaction</string>
     <string name="title_notifications">Notifications</string>
     <string name="cari_produk_disini">Cari produk disini</string>
     <string name="buka_toko_gratis">Buka Toko Gratis</string>
@@ -55,5 +55,10 @@
     <string name="category">Category</string>
     <string name="pengaturan_produk">Pengaturan produk</string>
     <string name="slider">Slider</string>
+    <string name="rp10_000">Rp10.000</string>
+    <string name="detail_produk">Detail Produk</string>
+    <string name="deskripsi_produk">Deskripsi Produk</string>
+    <string name="keranjang">Keranjang</string>
+    <string name="beli_sekarang">Beli Sekarang</string>
 </resources>
 

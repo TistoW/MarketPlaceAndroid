@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/lyToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/gray2" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_toStartOf="@+id/ly_icon"
+            android:layout_toEndOf="@+id/btnBack"
+            android:backgroundTint="@color/gray5"
+            app:cardCornerRadius="@dimen/_7sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:src="@drawable/ic_search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cari_produk_disini"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/ly_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/asset_ic_share"
+                app:tint="@color/gray2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/ic_notification"
+                app:tint="@color/gray2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:src="@drawable/ic_shopping_cart"
+                app:tint="@color/gray2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/gray2" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lyButton"
+        android:layout_below="@+id/lyToolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rp10_000"
+                    android:textAppearance="@style/TypographyStyles.Heading1"
+                    android:textColor="@color/dark" />
+
+                <LinearLayout
+                    android:id="@+id/ly_diskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/pinkSoftSecondary"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:id="@+id/tv_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_4sdp"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:text="10%"
+                            android:textAppearance="@style/TypographyStyles.Text3"
+                            android:textColor="@color/pinkSoft"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tv_hargaAsli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="Rp.10.000"
+                        android:textAppearance="@style/TypographyStyles.Text3" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    app:cardCornerRadius="@dimen/_15sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_inisial"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:text="TW"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/image_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tisto wahyudi"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jakarta"
+                        android:textAppearance="@style/TypographyStyles.Text3"
+                        android:textColor="@color/gray3" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_produk"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Terjual"
+                            android:textColor="@color/dark" />
+
+                        <TextView
+                            android:id="@+id/tvSold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/_1"
+                            android:textColor="@color/gray3"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/stok"
+                            android:textColor="@color/dark" />
+
+                        <TextView
+                            android:id="@+id/tv_stok"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/_1"
+                            android:textColor="@color/gray3"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Minimal Pemesanan"
+                            android:textColor="@color/dark" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/_1"
+                            android:textColor="@color/gray3"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/gray5" />
+
+                    <TextView
+                        android:id="@+id/tv_deskripsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/deskripsi"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/_11sdp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_6sdp"
+                android:background="@color/gray5" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/lyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_2sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:strokeColor="@color/gray4"
+            app:strokeWidth="1dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/asset_ic_chat"
+                app:tint="@color/gray2" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="@string/beli_sekarang"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            android:textColor="@color/colorPrimary"
+            app:cornerRadius="@dimen/_5sdp"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/keranjang"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TypographyStyles.Text2.Bold"
+            app:cornerRadius="@dimen/_5sdp"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:iconGravity="textStart" />
+
+    </LinearLayout>
+
+</RelativeLayout>

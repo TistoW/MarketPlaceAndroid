@@ -1,4 +1,4 @@
-package com.inyongtisto.marketplace.ui.home.adapter
+package com.inyongtisto.marketplace.ui.navigation.home.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

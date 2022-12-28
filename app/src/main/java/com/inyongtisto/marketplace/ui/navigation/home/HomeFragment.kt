@@ -1,15 +1,16 @@
-package com.inyongtisto.marketplace.ui.home
+package com.inyongtisto.marketplace.ui.navigation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
-import com.inyongtisto.marketplace.R
 import com.inyongtisto.marketplace.core.data.source.remote.network.State
 import com.inyongtisto.marketplace.databinding.FragmentHomeBinding
-import com.inyongtisto.marketplace.ui.home.adapter.*
+import com.inyongtisto.marketplace.ui.navigation.home.adapter.CategoryAdapter
+import com.inyongtisto.marketplace.ui.navigation.home.adapter.ProductTerbaruAdapter
+import com.inyongtisto.marketplace.ui.navigation.home.adapter.ProductTerlarisAdapter
+import com.inyongtisto.marketplace.ui.navigation.home.adapter.SliderAdapter
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

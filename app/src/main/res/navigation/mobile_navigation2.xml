@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.inyongtisto.marketplace.ui.home.HomeFragment"
+        android:name="com.inyongtisto.marketplace.ui.navigation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.inyongtisto.marketplace.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.inyongtisto.marketplace.ui.navigation.transaction.TransactionFragment"
+        android:label="@string/title_transaction"
+        tools:layout="@layout/fragment_transaction" />
 
     <fragment
         android:id="@+id/navigation_keranjang"
-        android:name="com.inyongtisto.marketplace.ui.keranjang.KeranjangFragment"
+        android:name="com.inyongtisto.marketplace.ui.navigation.cart.CartFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_akun" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.inyongtisto.marketplace.ui.akun.AkunFragment"
+        android:name="com.inyongtisto.marketplace.ui.navigation.account.AccountFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_keranjang" />
+        tools:layout="@layout/fragment_cart" />
 
 
 </navigation>
