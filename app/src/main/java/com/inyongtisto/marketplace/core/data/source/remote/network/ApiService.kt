@@ -93,6 +93,11 @@ interface ApiService {
         @Path("id") id: Int? = null
     ): Response<BaseSingelResponse<Product>>
 
+    @GET("product-detail/{id}")
+    suspend fun getOneProduct(
+        @Path("id") id: Int? = null
+    ): Response<BaseSingelResponse<Product>>
+
     @Multipart
     @POST("upload/product")
     suspend fun uploadProduct(

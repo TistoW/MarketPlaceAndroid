@@ -12,7 +12,9 @@ import com.inyongtisto.marketplace.util.toUrlProduct
 import com.inyongtisto.myhelper.extension.*
 
 @SuppressLint("NotifyDataSetChanged")
-class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewHolder>() {
+class ProductTerlarisAdapter(
+    var onClick: (Product) -> Unit,
+) : RecyclerView.Adapter<ProductTerlarisAdapter.ViewHolder>() {
 
     private var data = ArrayList<Product>()
 
@@ -27,6 +29,7 @@ class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewH
                 tvHarga.text = item.price.toRupiah()
                 tvPengiriman.text = item.pengirirman ?: "Jakarta Pusat"
                 tvReting.text = "" + (item.rating.def(5.0)) + " | Terjual " + item.sold
+                tvPengiriman.text = item.store?.address?.kota
 
                 if (item.discount != 0) {
                     lyGrosir.toGone()
@@ -39,7 +42,7 @@ class ProductTerlarisAdapter : RecyclerView.Adapter<ProductTerlarisAdapter.ViewH
                 }
 
                 lyMain.setOnClickListener {
-                    root.context.intentActivity(DetailProductActivity::class.java)
+                    onClick.invoke(item)
                 }
             }
         }

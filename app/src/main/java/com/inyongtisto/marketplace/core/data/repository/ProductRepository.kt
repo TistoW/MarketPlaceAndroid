@@ -78,6 +78,23 @@ class ProductRepository(val local: LocalDataSource, val remote: RemoteDataSource
         }
     }
 
+    fun getOneProduct(id: Int?) = flow {
+        emit(Resource.loading(null))
+        try {
+            remote.getOneProduct(id).let {
+                if (it.isSuccessful) {
+                    val body = it.body()
+                    val data = body?.data
+                    emit(Resource.success(data))
+                } else {
+                    emit(Resource.error(it.getErrorBody()?.message.defaultError(), null))
+                }
+            }
+        } catch (e: Exception) {
+            emit(Resource.error(e.message.defaultError(), null))
+        }
+    }
+
     fun upload(fileImage: MultipartBody.Part? = null) = flow {
         emit(Resource.loading(null))
         try {

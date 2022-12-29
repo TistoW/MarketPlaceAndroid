@@ -11,6 +11,7 @@ class ProductViewModel(private val repo: ProductRepository) : ViewModel() {
     fun create(data: Product) = repo.createProduct(data).asLiveData()
     fun update(data: Product) = repo.updateProduct(data).asLiveData()
     fun delete(id: Int?) = repo.deleteProduct(id).asLiveData()
+    fun getOneProduct(id: Int?) = repo.getOneProduct(id).asLiveData()
 
     fun upload(fileImage: MultipartBody.Part? = null) = repo.upload(fileImage).asLiveData()
 }

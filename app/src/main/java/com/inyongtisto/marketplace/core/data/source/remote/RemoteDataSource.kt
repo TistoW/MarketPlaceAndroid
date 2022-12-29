@@ -31,6 +31,7 @@ class RemoteDataSource(private val api: ApiService) {
     suspend fun createProduct(data: Product) = api.createProduct(data)
     suspend fun updateProduct(data: Product) = api.updateProduct(data.id, data)
     suspend fun deleteProduct(id: Int?) = api.deleteProduct(id)
+    suspend fun getOneProduct(id: Int?) = api.getOneProduct(id)
     suspend fun uploadProduct(fileImage: MultipartBody.Part? = null) = api.uploadProduct(fileImage)
 
     /*********** Category *************/

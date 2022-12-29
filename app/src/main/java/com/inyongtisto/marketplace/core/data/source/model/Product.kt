@@ -16,6 +16,7 @@ class Product(
     val isActive: Boolean? = null,
     val images: String? = null,
     val category: Category? = null,
+    val store: Toko? = null,
 
     val pengirirman: String? = null,
     val sold: Int? = null,
@@ -23,6 +24,7 @@ class Product(
     val discount: Int = 0,
     val grosir: Boolean? = null,
     val imageDummy: Int? = null,  // nanti dihapus
+
 ) : Parcelable {
     fun firstImage(): String {
         val splitImages = images?.split("|")

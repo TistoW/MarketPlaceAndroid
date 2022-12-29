@@ -72,7 +72,7 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     // myHelper
-    implementation 'com.github.TistoW:MyHelper:2.0.15'
+    implementation 'com.github.TistoW:MyHelper:2.0.18'
 
     // shared preferences
     implementation "com.chibatching.kotpref:kotpref:2.13.1"

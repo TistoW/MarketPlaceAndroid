@@ -1,5 +1,9 @@
 package com.inyongtisto.marketplace.core.data.source.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class AlamatToko(
     val label: String? = null,
     val alamat: String? = null,
@@ -17,4 +21,4 @@ data class AlamatToko(
     val provinsiId: Int? = null,
     val tokoId: Int? = null,
     val updated_at: String? = null
-)
+):Parcelable
